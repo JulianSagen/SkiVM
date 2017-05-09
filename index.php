@@ -76,7 +76,7 @@
                     <div id="WrongPassword"></div>
                     <br>
                     <div id="log-head">
-                        <button class="btn btn-success" type="submit">Create user</button>
+                        <button class="btn btn-success" type="submit">Create user </button>
                     </div>
                 </div>
             </div>
