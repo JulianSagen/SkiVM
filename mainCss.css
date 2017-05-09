@@ -6,10 +6,10 @@ html, body {
     font-family: "open sans", sans-serif;
     font-weight: 100;
     overflow-x: hidden;
-    background-color: #000000;
+    background-color: white;
 }
 article {
-    height: 250vh;
+    height: 1000px;
     width: 70%;
     margin-left: 15.5%;
     display: block;
@@ -19,7 +19,8 @@ article {
 #upper {
     background-color: #070E1C;
     position: relative;
-    background-color: black;
+    background-color: darkgrey;
     background-repeat: no-repeat;
-    height: 50vh;
+    height: 100vh;
+    margin-top: -1.25%;
 }

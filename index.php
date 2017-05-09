@@ -7,8 +7,12 @@
 
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="dist/css/bootstrap.css" rel="stylesheet">
     <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="mainCss.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -17,7 +21,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Brand</a>
-            <button type="button" class="btn btn-default navbar-btn"data-toggle="modal" data-target="#myModal">Sign in</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
             <p class="navbar-text">Signed in as Mark Otto</p>
         </div>
 
@@ -33,27 +37,17 @@
 </nav>
 
 <article id="upper">
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                ...
             </div>
-
         </div>
     </div>
 </article>
-
+<script src="dist/js/bootstrap.js"></script>
+<script src="dist/js/jquery-3.2.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
 </body>
 </html>
