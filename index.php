@@ -55,6 +55,8 @@
     </div>
 </article>
 <script src="dist/js/bootstrap.js"></script>
+<script src="dist/js/uservalidation.js"></script>
+
 
 
 </body>
