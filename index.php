@@ -20,36 +20,54 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Brand</a>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
-            <p class="navbar-text">Signed in as Mark Otto</p>
+            <a class="navbar-brand" href="#">HOME</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+            <div id="log-head">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Hjem</a> </li>
+                <p class="navbar-text">Signed in as: </p>
+                <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
+                <li><button type="button" class="btn btn-group-justified" data-toggle="modal" data-target=".Registrer">Registrer</button></li>
+                </div>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
 <article id="upper">
-    <!-- Small modal -->
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <!-- Log in Modal -->
+    <div class="modal fade Login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-lg" role="document">
 
             <div class="modal-content">
                 <div id="modal">
                 <h2 class="h2">Log In</h2>
-                <input type="text" placeholder="Username" onsubmit="catch ">
+                <input type="text" placeholder="Username" onsubmit="catch "><br>
                 <input type="password" placeholder="Password" onsubmit="catch ">
                     <br>
-                    <button type="submit">Log in</button>
-                    <button type="submit">Register</button>
+                    <div id="log-head">
+                    <button class="btn btn-success" type="submit">Log in</button>
+                    </div>
             </div>
+            </div>
+        </div>
+    </div>
+    <!-- Registrer Modal -->
+    <div class="modal fade Registrer" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <div class="modal-content">
+                <div id="modal">
+                    <h2 class="h2">Registrer</h2>
+                    <input type="text" placeholder="Username" onsubmit="catch "><br>
+                    <input type="password" placeholder="Password" onsubmit="catch ">
+                    <br>
+                    <div id="log-head">
+                        <button class="btn btn-success" type="submit">Create user</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

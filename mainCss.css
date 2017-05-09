@@ -12,18 +12,23 @@ article {
     height: 1000px;
     width: 70%;
     margin-left: 15.5%;
+    margin-top: -20px;
     display: block;
-    background-color: #F0F0F0;
+    background-color: #A9A9A9;
 }
 
 #upper {
-    background-color: #070E1C;
+    background-color: #2E2E2E;
     position: relative;
-    background-color: darkgrey;
-    background-repeat: no-repeat;
     height: 100vh;
 }
  #modal{
-    margin-left: 20%;
+    margin-left: 30%;
      padding-bottom: 5%;
+     z-index: -10;
 }
+
+ #log-head {
+
+     
+ }
