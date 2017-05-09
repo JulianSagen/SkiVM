@@ -48,6 +48,7 @@
                 <input type="password" placeholder="Password" onsubmit="catch ">
                     <br>
                     <button type="submit">Log in</button>
+                    <button type="submit">Register</button>
             </div>
             </div>
         </div>
