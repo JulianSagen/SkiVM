@@ -13,6 +13,8 @@
     <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="mainCss.css" rel="stylesheet">
     <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.js"></script>
+    <script src="dist/js/uservalidation.js"></script>
 </head>
 <body>
 
@@ -26,11 +28,18 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div id="log-head">
-            <ul class="nav navbar-nav navbar-right">
-                <p class="navbar-text">Signed in as: </p>
-                <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
-                <li><button type="button" class="btn btn-group-justified" data-toggle="modal" data-target=".Registrer">Registrer</button></li>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text">Signed in as: </p>
+                    <li>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-group-justified" data-toggle="modal"
+                                data-target=".Registrer">Registrer
+                        </button>
+                    </li>
+            </div>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -43,14 +52,14 @@
 
             <div class="modal-content">
                 <div id="modal">
-                <h2 class="h2">Log In</h2>
-                <input type="text" placeholder="Username" onsubmit="catch "><br>
-                <input type="password" placeholder="Password" onsubmit="catch ">
+                    <h2 class="h2">Log In</h2>
+                    <input type="text" placeholder="Username" onsubmit="catch "><br>
+                    <input type="password" placeholder="Password" onsubmit="catch ">
                     <br>
                     <div id="log-head">
-                    <button class="btn btn-success" type="submit">Log in</button>
+                        <button class="btn btn-success" type="submit">Log in</button>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </div>
@@ -61,19 +70,18 @@
             <div class="modal-content">
                 <div id="modal">
                     <h2 class="h2">Registrer</h2>
-                    <input type="text" placeholder="Username" onsubmit="catch "><br>
-                    <input type="password" placeholder="Password" onsubmit="catch ">
+                    <input type="text" placeholder="Username" onchange="validateUsername()" onsubmit="catch ">
+                    <div id="WrongUsername"></div>
+                    <input type="password" placeholder="Password" onchange="validatePassword()" onsubmit="catch ">
+                    <div id="WrongPassword"></div>
                     <br>
                     <div id="log-head">
-                        <button class="btn btn-success" type="submit">Create user</button>
+                        <button class="btn btn-success" type="submit">Create user </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </article>
-<script src="dist/js/bootstrap.js"></script>
-
-
 </body>
 </html>
