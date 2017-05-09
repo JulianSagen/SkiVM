@@ -32,6 +32,7 @@
                 <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
             </div>
             </ul>
+            
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
