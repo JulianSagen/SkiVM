@@ -69,8 +69,9 @@
 
             <div class="modal-content">
                 <div id="modal">
+                    <form action="" method="post" id="product-form" name="skjema">
                     <h2 class="h2">Registrer</h2>
-                    <input type="text" placeholder="Username" onchange="validateUsername()" onsubmit="catch ">
+                    <input type="text" placeholder="Username" name="navn" onchange="validateUsername()" onsubmit="catch ">
                     <div id="WrongUsername"></div>
                     <input type="password" placeholder="Password" onchange="validatePassword()" onsubmit="catch ">
                     <div id="WrongPassword"></div>
@@ -78,6 +79,7 @@
                     <div id="log-head">
                         <button class="btn btn-success" type="submit">Create user </button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
