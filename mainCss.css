@@ -22,5 +22,8 @@ article {
     background-color: darkgrey;
     background-repeat: no-repeat;
     height: 100vh;
-    margin-top: -1.25%;
+}
+ #modal{
+    margin-left: 20%;
+     padding-bottom: 5%;
 }
