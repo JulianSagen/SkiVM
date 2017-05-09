@@ -13,11 +13,11 @@
     <title>The ultimate SkiVM Sytem</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="../starter-template.css" rel="stylesheet">
 
 </head>
 
@@ -57,8 +57,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="dist/js/jquery.min.js"></script>
+<script src="../dist/js/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
 </body>
 </html>
