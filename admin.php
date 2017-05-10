@@ -23,8 +23,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right" id="loginNav">
                 <p class="navbar-text">Signed in as: </p>
-                <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
-                <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
+                <li>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
+                    </button>
+                </li>
+                <li>
+                    <button id="regBtn" type="submit" class="btn btn-default"
+                            onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal"
+                            data-target=".Registrer">Registrer
+                    </button>
+                </li>
                 <li><a id="admin" href="admin.php">Admin</a></li>
             </ul>
 
@@ -51,40 +59,29 @@
             </div>
         </div>
     </div>
-<!--Innhold i admin -->
+    <!--Innhold i admin -->
     <h1 id="tittleAdmin">Admin Konsoll</h1>
     <h2 id="tittle">Registrerte Brukere</h2>
     <div id="tabellBrukere">
-    <table class="table" id="table-props">
-        <thead class="thead-inverse">
-        <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
+        <?php
+        $db = new mysqli("student.cs.hioa.no", "s315584", "", "s315584");
+        if ($db->connect_error) {
+            echo $db->connect_error;
+            die("Kunne ikke koble til databasen");
+        }
+
+        $sql = "SELECT * from users";
+        $resultat = mysqli_query($db, $sql);
+
+        echo "<table class=\"table\" id=\"table-props\">";
+        echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>";
+        while ($row = mysqli_fetch_array($resultat)) {   //Creates a loop to loop through results
+            echo "<tr><th >" . $row['userid'] . "</th><td >" . $row['username'] . "</td><td>" . $row['fullnavn'] . "</td><td>";
+            echo $row['email'] . "</td><td>".$row['phonenr'] . "</td><td>" . $row['address'] . "</td></tr>";
+        }
+        echo "</table>";
+        mysqli_close($db);
+        ?>
     </div>
 </article>
 
