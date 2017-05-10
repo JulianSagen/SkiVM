@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">HOME</a>
+            <a class="navbar-brand" href="index.php">HOME</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,6 +52,7 @@
             </div>
         </div>
     </div>
+    <h1 id="tittle">Registrer Bruker</h1>
     <div id="regist">
     <form action="confirm.php" method="get">
         <div id="TextTBox">Brukernavn:</div>     <input type="text" name="username" placeholder="Username" ><br><br>
@@ -59,7 +60,7 @@
         <div id="TextTBox"> Navn:</div>          <input type="text" name="name" pattern="[A-Za-z]{2,10}$" title="Trenger mellom 1-10 bokstaver" placeholder="Name"><br><br>
         <div id="TextTBox">E-mail:</div>         <input type="text" name="email"pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Ugyldig epost adresse" placeholder="E-mail"><br><br>
         <div id="TextTBox">Telefon nummer:</div> <input type="text" name="phoneNumber" pattern="[0-9/-]{5,13}" title="Telefonnummer er ugyldig" placeholder="Phonenumber"><br><br>
-        <div id="TextTBox"> Addresse:</div>          <input type="text" name="address" pattern="[A-Za-z]{2,10}$" title="Trenger mellom 1-10 bokstaver" placeholder="Name"><br><br>
+        <div id="TextTBox"> Addresse:</div>      <input type="text" name="address" pattern="[A-Za-z]{2,10}$" title="Trenger mellom 1-10 bokstaver" placeholder="Name"><br><br>
         <input type="submit" value="Bestill">
     </form>
     </div>
