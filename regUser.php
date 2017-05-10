@@ -1,4 +1,5 @@
 <?php
+include 'authentication.php';
 function createUser($username, $password, $fullname, $email, $phonenr, $address)
 {
     if($username == null || $password == null || $fullname == null ||$phonenr == null ||$address == null || $email == null){
@@ -10,7 +11,6 @@ function createUser($username, $password, $fullname, $email, $phonenr, $address)
         die($db->connect_error);
     }
     $sql = "Insert Into users (username, password, fullnavn, email, phonenr, address) Values ('$username','$password','$fullname','$email','$phonenr','$address')";
-
 
     $resultat = $db->query($sql);
     if(!$resultat)   {
