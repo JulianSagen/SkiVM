@@ -5,7 +5,7 @@
  * Date: 10.05.2017
  * Time: 13.17
  */
-checklogin('julian4', 'julian4');
+
 
 function encryptPasswordHash($password)
 {
@@ -25,7 +25,6 @@ function checklogin($username, $password)
     }
 
     $sql = 'SELECT password FROM users WHERE username="' . $username . '";';
-    echo $sql;
 
     $resultat = $db->query($sql);
     if(!$resultat)   {
@@ -38,19 +37,19 @@ function checklogin($username, $password)
         }
         // output data of each row
         $row = $resultat->fetch_assoc();
+        $db->close();
         $passfromDB = $row["password"];
-        echo "<br>Passord fra DB:" . $passfromDB . "<br>";
     } else {
         echo "0 results";
     }
 
     if(password_verify($password, $passfromDB))
     {
-        echo "Brukeren " . $username . " er nå logget inn";
+        return true;
     }else{
-        echo '<br>Feil passord! -  Forsøkt passord: ' . $password . " <br>   Passordet i databasen skal være:" . encryptPasswordHash($passfromDB) . "<br>    Passordet i databasen er: " . $passfromDB . "<br>";
+        return false;
     }
 
-    $db->close();
+
 
 }

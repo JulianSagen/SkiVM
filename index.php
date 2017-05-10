@@ -67,12 +67,15 @@
             <div class="modal-content">
                 <div id="modal">
                     <h2 class="h2">Log In</h2>
-                    <input type="text" placeholder="Username" onsubmit="catch "><br>
-                    <input type="password" placeholder="Password" onsubmit="catch ">
-                    <br>
-                    <div id="log-head">
-                        <button class="btn btn-success" type="submit">Log in</button>
-                    </div>
+                    <form action="login.php" method="get">
+                        <input name="username" type="text" placeholder="Username" onsubmit="catch "><br>
+                        <input name="password" type="password" placeholder="Password" onsubmit="catch ">
+
+                        <br>
+                        <div id="log-head">
+                            <button class="btn btn-success" type="submit">Log in</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
