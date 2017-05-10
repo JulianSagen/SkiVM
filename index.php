@@ -28,8 +28,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right" id="loginNav">
                 <p class="navbar-text">Signed in as: </p>
-                <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
-                <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
+                <li>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
+                    </button>
+                </li>
+                <li>
+                    <button id="regBtn" type="submit" class="btn btn-default"
+                            onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal"
+                            data-target=".Registrer">Registrer
+                    </button>
+                </li>
                 <li><a id="admin" href="admin.php">Admin</a></li>
             </ul>
 
@@ -46,36 +54,17 @@
 
             <div class="modal-content">
                 <div id="modal">
-                <h2 class="h2">Log In</h2>
-                <input type="text" placeholder="Username" onsubmit="catch "><br>
-                <input type="password" placeholder="Password" onsubmit="catch ">
-                    <br>
-                    <div id="log-head">
-                    <button class="btn btn-success" type="submit">Log in</button>
-                    </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Registrer Modal --><!--
-    <div class="modal fade Registrer" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-
-            <div class="modal-content">
-                <div id="modal">
-                    <h2 class="h2">Registrer</h2>
+                    <h2 class="h2">Log In</h2>
                     <input type="text" placeholder="Username" onsubmit="catch "><br>
                     <input type="password" placeholder="Password" onsubmit="catch ">
                     <br>
                     <div id="log-head">
-                        <button class="btn btn-success" type="submit">Create user</button>
+                        <button class="btn btn-success" type="submit">Log in</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    -->
     <div id="front-tittle"><h1 id="big">SKI VM</h1>
     </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -114,9 +103,14 @@
 </article>
 
 <article id="downer">
-<div id="tittle">
-
-</div>
+    <div id="tittle">
+        <h1>Welcome to ski VM in Norway</h1>
+        <p>Register a user if you want to join yourself!</p>
+        <ul>
+            <li>Ski jumping</li>
+            <li>Langrenn</li>
+        </ul>
+    </div>
 </article>
 <script src="dist/js/bootstrap.js"></script>
 
