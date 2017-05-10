@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -52,36 +49,7 @@
             </div>
         </div>
     </div>
-    <h1 id="tittle">Registrer Bruker</h1>
-    <div id="regist">
-    <form action="confirm.php" method="get">
-        <div id="TextTBox">Brukernavn:</div>     <input type="text" name="username" placeholder="Username" ><br><br>
-        <div id="TextTBox">Passord:</div>        <input type="password" placeholder="Password" name="password"><br><br>
-        <div id="TextTBox"> Navn:</div>          <input type="text" name="name" pattern="[A-Za-z]{2,10}$" title="Trenger mellom 1-10 bokstaver" placeholder="Name"><br><br>
-        <div id="TextTBox">E-mail:</div>         <input type="text" name="email"pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Ugyldig epost adresse" placeholder="E-mail"><br><br>
-        <div id="TextTBox">Telefon nummer:</div> <input type="text" name="phonenumber" pattern="[0-9/-]{5,13}" title="Telefonnummer er ugyldig" placeholder="Phonenumber"><br><br>
-        <div id="TextTBox"> Addresse:</div>          <input type="text" name="address" pattern="[A-Za-z]{2,10}$" title="Trenger mellom 1-10 bokstaver" placeholder="Name"><br><br>
-        <input type="submit" value="Bestill">
-    </form>
-    </div>
-    <!-- Registrer Modal --><!--
-    <div class="modal fade Registrer" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-
-            <div class="modal-content">
-                <div id="modal">
-                    <h2 class="h2">Registrer</h2>
-                    <input type="text" placeholder="Username" onsubmit="catch "><br>
-                    <input type="password" placeholder="Password" onsubmit="catch ">
-                    <br>
-                    <div id="log-head">
-                        <button class="btn btn-success" type="submit">Create user</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+<!--Innhold i admin -->
 </article>
 <script src="dist/js/bootstrap.js"></script>
 
