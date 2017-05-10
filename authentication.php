@@ -5,21 +5,11 @@
  * Date: 10.05.2017
  * Time: 13.17
  */
-checklogin('julian2', 'abcde');
-
-echo "Testing encryption!<br>";
-echo "Creating the password 123:";
-$pass = '123';
-$encrypted = encryptPasswordHash($pass);
-echo "Testing password:";
-    if(password_verify($pass, $encrypted)){
-        echo "Password successfully authenticated";
-    }else{
-        echo "Password is useless";
-    }
+checklogin('julian4', 'julian4');
 
 function encryptPasswordHash($password)
 {
+
    $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
 
    return $encryptedPassword;
@@ -49,7 +39,7 @@ function checklogin($username, $password)
         // output data of each row
         $row = $resultat->fetch_assoc();
         $passfromDB = $row["password"];
-
+        echo "<br>Passord fra DB:" . $passfromDB . "<br>";
     } else {
         echo "0 results";
     }
@@ -58,7 +48,7 @@ function checklogin($username, $password)
     {
         echo "Brukeren " . $username . " er nå logget inn";
     }else{
-        echo '<br>Feil passord! -  Forsøkt passord: ' . $password . "Riktig passoord for bruker: " . $passfromDB ;
+        echo '<br>Feil passord! -  Forsøkt passord: ' . $password . " <br>   Passordet i databasen skal være:" . encryptPasswordHash($passfromDB) . "<br>    Passordet i databasen er: " . $passfromDB . "<br>";
     }
 
     $db->close();
