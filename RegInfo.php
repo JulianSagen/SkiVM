@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">HOME</a>
+            <a class="navbar-brand" href="index.php">HOME</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,6 +52,7 @@
             </div>
         </div>
     </div>
+    <h1 id="tittle">Registrer Bruker</h1>
     <div id="regist">
     <form action="confirm.php" method="get">
         <div id="TextTBox">Brukernavn:</div>     <input type="text" name="username" placeholder="Username" ><br><br>

@@ -20,7 +20,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">HOME</a>
+            <a class="navbar-brand" href="index.php">HOME</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,12 +32,13 @@
                 <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
             </div>
             </ul>
-            
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
 <article id="upper">
+
     <!-- Log in Modal -->
     <div class="modal fade Login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-lg" role="document">
@@ -74,6 +75,47 @@
         </div>
     </div>
     -->
+    <div id="front-tittle"><h1 id="big">SKI VM</h1>
+    </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="img/ski.jpg" alt="ski">
+            </div>
+
+            <div class="item">
+                <img src="img/jump.jpg" alt="jump">
+            </div>
+
+            <div class="item">
+                <img src="img/Snow.jpg" alt="Snow">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</article>
+
+<article id="downer">
+<div id="tittle">
+
+</div>
 </article>
 <script src="dist/js/bootstrap.js"></script>
 
