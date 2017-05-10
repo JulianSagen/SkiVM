@@ -29,7 +29,7 @@
             <ul class="nav navbar-nav navbar-right" id="loginNav">
                 <?php
                 /* TODO make this only show if user is signed in*/
-                $userIsSignedIn = false;
+                $userIsSignedIn = true;
                 if($userIsSignedIn){
                     echo "<p class='navbar-text'>Signed in as: </p>";
                 }
@@ -44,7 +44,13 @@
                             data-target=".Registrer">Registrer
                     </button>
                 </li>
-                <li><a id="admin" href="admin.php">Admin</a></li>
+                <?php
+                /* TODO make this only show if user is an admin*/
+                $userIsAdmin = true;
+                if($userIsAdmin){
+                    echo "<li><a id=\"admin\" href=\"admin.php\">Admin</a></li>";
+                }
+                ?>
             </ul>
 
 
