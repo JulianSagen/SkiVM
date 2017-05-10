@@ -53,6 +53,7 @@
     </div>
 <!--Innhold i admin -->
     <h1 id="tittleAdmin">Admin Konsoll</h1>
+    <h2 id="tittle">Registrerte Brukere</h2>
     <div id="tabellBrukere">
     <table class="table" id="table-props">
         <thead class="thead-inverse">
