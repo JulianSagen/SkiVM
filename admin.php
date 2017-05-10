@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="mainCss.css" rel="stylesheet">
+    <script src="dist/js/jquery.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">HOME</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div id="log-head">
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text">Signed in as: </p>
+                    <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
+                    <li><button type="button" class="btn btn-group-justified" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer">Registrer</button></li>
+            </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<article id="regart">
+    <!-- Log in Modal -->
+    <div class="modal fade Login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <div class="modal-content">
+                <div id="modal">
+                    <h2 class="h2">Log In</h2>
+                    <input type="text" placeholder="Username" onsubmit="catch "><br>
+                    <input type="password" placeholder="Password" onsubmit="catch ">
+                    <br>
+                    <div id="log-head">
+                        <button class="btn btn-success" type="submit">Log in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Innhold i admin -->
+</article>
+<script src="dist/js/bootstrap.js"></script>
+
+
+</body>
+</html>

@@ -106,6 +106,7 @@ article {
     z-index: 100;
     color: red;
     margin-top: 6px;
+    padding:0;
     margin-left: 5px;
 }
 
