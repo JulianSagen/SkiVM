@@ -5,17 +5,29 @@
  * Date: 10.05.2017
  * Time: 13.17
  */
-//checklogin('Snorre', '123123');
+checklogin('julian2', 'abcde');
+
+echo "Testing encryption!<br>";
+echo "Creating the password 123:";
+$pass = '123';
+$encrypted = encryptPasswordHash($pass);
+echo "Testing password:";
+    if(password_verify($pass, $encrypted)){
+        echo "Password successfully authenticated";
+    }else{
+        echo "Password is useless";
+    }
 
 function encryptPasswordHash($password)
 {
-   $encryptedPassword = password_hash($password, PASSWORD_BCRYPT);
+   $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
 
    return $encryptedPassword;
 }
 
 function checklogin($username, $password)
 {
+
     $db = new mysqli("student.cs.hioa.no", "s315584", "", "s315584");
     if ($db->connect_error) {
         echo $db->connect_error;
@@ -42,7 +54,7 @@ function checklogin($username, $password)
         echo "0 results";
     }
 
-    if($password == $passfromDB)
+    if(password_verify($password, $passfromDB))
     {
         echo "Brukeren " . $username . " er nå logget inn";
     }else{

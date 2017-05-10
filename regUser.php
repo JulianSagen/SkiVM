@@ -10,7 +10,8 @@ function createUser($username, $password, $fullname, $email, $phonenr, $address)
         echo $db->connect_error;
         die($db->connect_error);
     }
-    $sql = "Insert Into users (username, password, fullnavn, email, phonenr, address) Values ('$username','$password','$fullname','$email','$phonenr','$address')";
+    $encryptedpassword = encryptPasswordHash($password);
+    $sql = "Insert Into users (username, password, fullnavn, email, phonenr, address) Values ('$username','$encryptedpassword','$fullname','$email','$phonenr','$address')";
 
     $resultat = $db->query($sql);
     if(!$resultat)   {
