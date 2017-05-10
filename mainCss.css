@@ -83,6 +83,12 @@ article {
      color: white;
  }
 
+#tittleAdmin {
+    padding-left: 38%;
+    padding-top: 10%;
+    color: black;
+}
+
  #myCarousel {
      width: 100%;
  }
@@ -116,4 +122,13 @@ article {
     padding: 0;
     width: auto;
     height: 100vh;
+}
+
+#tabellBrukere {
+    padding: 2%;
+    border-color: #122b40;
+}
+
+#table-props {
+    background-color: #e6e6e6;
 }
