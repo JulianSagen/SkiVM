@@ -15,6 +15,7 @@ article {
     background-color: #A9A9A9;
 }
 
+
 #upper {
     background-color: lightgray;
     position: relative;
@@ -36,16 +37,29 @@ article {
     0px -10px 12px 0px #000;
 }
 
+#regart {
+    background-color: lightgray;
+    position: relative;
+    margin-left: 15%;
+    width: 70%;
+    height: 1000px;
+}
+
  #modal{
-    margin-left: 30%;
+     margin-left: 30%;
      padding-bottom: 5%;
      z-index: -10;
 }
 
- #log-head {
-
+ #loginNav {
+     margin-right: 65px;
+     margin-top: 6px;
 
  }
+#loginNav > p{
+    margin-top: 6px;
+    color: aquamarine;
+}
 
  #regist {
      padding-left: 10%;
@@ -77,4 +91,11 @@ article {
 #big {
     font-family: "Baskerville Old Face";
     font-size: 60px;
+}
+
+#admin {
+    z-index: 100;
+    color: red;
+    margin-top: 6px;
+    margin-left: 5px;
 }

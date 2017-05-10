@@ -34,7 +34,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<article id="upper">
+<article id="regart">
     <!-- Log in Modal -->
     <div class="modal fade Login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-lg" role="document">
