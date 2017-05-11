@@ -74,15 +74,33 @@ include_once('navbar.php');
 </article>
 
 <article id="downer">
+    <!-- TODO show information about all the events-->
     <div id="tittle">
-        <h1>Welcome to ski VM in Norway</h1>
-        <p>Register a user if you want to join the events as a viewer!</p>
-        <ul>
-            <li>Ski jumping</li>
-            <li>Langrenn</li>
-        </ul>
+        <h1>Velkommen til Ski-VM i Oslo</h1>
+        <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
+
     </div>
 </article>
+<footer class="panel-footer">
+    <table>
+        <tr>
+            <td>
+              hey1
+            </td>
+            <td>
+hey2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                hey1
+            </td>
+            <td>
+                hey2
+            </td>
+        </tr>
+    </table>
+</footer>
 <script src="dist/js/bootstrap.js"></script>
 
 
