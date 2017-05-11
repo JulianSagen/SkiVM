@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(true){ ?>
     <nav id="navbar" class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -30,6 +31,9 @@ if(true){ ?>
                                 data-target=".Registrer">Registrer
                         </button>
                     </li>
+                    <?php
+                    $dropdown = isset($_SESSION['login_user']);
+                    if($dropdown){?>
                     <li id="dropdown" class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             <span class="caret"></span></button>
@@ -42,12 +46,14 @@ if(true){ ?>
 
                             ?>
                             <li><a href="index.php">Profil</a></li>
-                            <li><a href="index.php" onclick='logOut()'>Logg Ut</a></li>
+                            <li><a href="logout.php">Logg Ut</a></li>
                         </ul>
-                    </li>
+                    </li
+                        <?php }
+                        ?>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
 <?php }
 ?>
