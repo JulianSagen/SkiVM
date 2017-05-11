@@ -41,8 +41,8 @@ if(true){ ?>
                             }
 
                             ?>
-                            <li><a href="#">Profil</a></li>
-                            <li><a href="#">Logg Ut</a></li>
+                            <li><a href="index.php">Profil</a></li>
+                            <li><a href="index.php">Logg Ut</a></li>
                         </ul>
                     </li>
                 </ul>
