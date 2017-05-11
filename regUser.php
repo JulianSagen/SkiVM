@@ -1,10 +1,6 @@
 <?php
 include 'authentication.php';
-function createUser($username, $password, $fullname, $email, $phonenr, $address)
-{
-    if($username == null || $password == null || $fullname == null ||$phonenr == null ||$address == null || $email == null){
-        die("Alle datafelt må fylles");
-    }
+function createUser($username, $password, $fullname, $email, $phonenr, $address){
     $db = new mysqli("student.cs.hioa.no", "s315584", "", "s315584");
     if ($db->connect_error) {
         echo $db->connect_error;

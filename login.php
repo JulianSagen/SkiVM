@@ -11,5 +11,6 @@
     }else{
         echo "Your password is useless";
     }
+    header("Location: index.php");
 
 
