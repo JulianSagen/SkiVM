@@ -22,5 +22,4 @@ function createUser($username, $password, $fullname, $email, $phonenr, $address)
     }
     $db->close();
 
-
 }
