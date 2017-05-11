@@ -5,7 +5,7 @@ $username = $_GET["username"];
 $password = $_GET["password"];
 $fullname = $_GET["name"];
 $email = $_GET["email"];
-$phone = $_GET["phonenumber"];
+$phonenr = $_GET["phonenumber"];
 $address = $_GET["address"];
 if ($username == "" || $password == "" || $fullname == "" ||$phonenr == "" ||$address == "" || $email == "") {
     header("Location: Registrer.php");
