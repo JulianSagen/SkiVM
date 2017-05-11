@@ -141,18 +141,13 @@ article {
 
 #tabellOvelser {
     padding: 2%;
-    padding-left: 30%;
-    display: block;
-    background-color: #e6e6e6;
+    border-color: #122b40;
 
 }
 
 #tabellAtleter {
     padding: 2%;
-    padding-left: 30%;
-    display: block;
-    background-color: #e6e6e6;
-
+    border-color: #122b40;
 }
 
 #table-props {
