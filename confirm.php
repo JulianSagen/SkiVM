@@ -10,7 +10,7 @@ $address = $_GET["address"];
 if ($username == "" || $password == "" || $fullname == "" ||$phonenr == "" ||$address == "" || $email == "") {
     header("Location: Registrer.php");
 } else {
-    createUser($username, $password, $fullname, $email, $phone, $address);
+    createUser($username, $password, $fullname, $email, $phonenr, $address);
     header("Location: index.php");
 }
 
