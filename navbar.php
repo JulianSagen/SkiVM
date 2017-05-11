@@ -16,12 +16,12 @@ if(true){ ?>
                     /* this only show if user is signed in*/
                     if (isset($_SESSION['login_user'])) {
                         $user = $_SESSION['login_user'];
-                        echo "<p class='navbar-text'>Signed in as: " . $user . "</p>";
+                        echo "<p class='navbar-text'>Logget inn som: " . $user . "</p>";
                     }
                     ?>
 
                     <li>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Logg På
                         </button>
                     </li>
                     <li>
@@ -31,7 +31,7 @@ if(true){ ?>
                         </button>
                     </li>
                     <li id="dropdown" class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <?php
