@@ -13,15 +13,15 @@ if(true){ ?>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" id="loginNav">
                     <?php
-                    /* TODO make this only show if user is signed in*/
+                    /* this only show if user is signed in*/
                     if (isset($_SESSION['login_user'])) {
                         $user = $_SESSION['login_user'];
-                        echo "<p class='navbar-text'>Signed in as: " . $user . "</p>";
+                        echo "<p class='navbar-text'>Logget inn som: " . $user . "</p>";
                     }
                     ?>
 
                     <li>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Logg På
                         </button>
                     </li>
                     <li>
@@ -30,17 +30,22 @@ if(true){ ?>
                                 data-target=".Registrer">Registrer
                         </button>
                     </li>
-                    <?php
-                    /* TODO make this only show if user is an admin*/
-                    $userIsAdmin = true;
-                    if($userIsAdmin){
-                        echo "<li><a id=\"admin\" href=\"admin.php\">Admin</a></li>";
-                    }
+                    <li id="dropdown" class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <?php
+                            /* TODO make this only show if user is an admin*/
+                            if (isset($_SESSION['login_user'])) {
+                                echo "<li><a href=\"admin.php\">Admin</a></li>";
+                            }
 
-                    ?>
+                            ?>
+                            <li><a href="index.php">Profil</a></li>
+                            <li><a href="index.php">Logg Ut</a></li>
+                        </ul>
+                    </li>
                 </ul>
-
-
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

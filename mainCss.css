@@ -18,7 +18,6 @@ article {
     position: fixed;
     z-index: 1000;
     width:100%;
-    overflow: hidden;
 }
 
 #upper {
@@ -29,18 +28,16 @@ article {
 }
 
 #downer  {
-    background-color: lightgray;
+    background-color: white;
     position: relative;
-    margin-left: 15%;
+    text-align: center;
+    margin: auto;
     width: 70%;
     height: 600px;
     margin-top: 0;
-    -moz-box-shadow: 0px 10px 12px 0px #000,
-    0px -10px 12px 0px #000;
-    -webkit-box-shadow: 0px 10px 12px 0px #000,
-    0px -10px 12px 0px #000;
-    box-shadow: 0px 10px 12px 0px #000,
-    0px -10px 12px 0px #000;
+    -webkit-box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
+    -moz-box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
+    box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
 }
 
 #regart {
@@ -76,7 +73,6 @@ article {
  }
 
  #tittle {
-     padding-left: 5%;
      padding-top: 4%;
      color: #0f0f0f;
  }
@@ -142,18 +138,13 @@ article {
 
 #tabellOvelser {
     padding: 2%;
-    padding-left: 30%;
-    display: block;
-    background-color: #e6e6e6;
+    border-color: #122b40;
 
 }
 
 #tabellAtleter {
     padding: 2%;
-    padding-left: 30%;
-    display: block;
-    background-color: #e6e6e6;
-
+    border-color: #122b40;
 }
 
 #table-props {
@@ -162,4 +153,12 @@ article {
 
 #table-props2 {
     background-color: #e6e6e6;
+}
+#dropdown{
+    z-index: 4000;
+}
+.panel-footer > table{
+    width:50%;
+    margin: auto;
+    text-align: center;
 }
