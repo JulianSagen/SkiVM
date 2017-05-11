@@ -18,7 +18,6 @@ article {
     position: fixed;
     z-index: 1000;
     width:100%;
-    overflow: hidden;
 }
 
 #upper {
@@ -162,4 +161,7 @@ article {
 
 #table-props2 {
     background-color: #e6e6e6;
+}
+#dropdown{
+    z-index: 4000;
 }
