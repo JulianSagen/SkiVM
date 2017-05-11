@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav navbar-right" id="loginNav">
                 <p class="navbar-text">Signed in as: </p>
                 <li><button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In</button></li>
-                <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
+                <li><button id="regBtn" type="submit" class="btn btn-default" onclick="window.location.href='/Registrer.php'" data-toggle="modal" data-target=".Registrer" >Registrer</button></li>
                 <li><a id="admin" href="admin.php">Admin</a></li>
             </ul>
 

@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -40,7 +35,7 @@
                 </li>
                 <li>
                     <button id="regBtn" type="submit" class="btn btn-default"
-                            onclick="window.location.href='/SkiVM/RegInfo.php'" data-toggle="modal"
+                            onclick="window.location.href='Registrer.php'" data-toggle="modal"
                             data-target=".Registrer">Registrer
                     </button>
                 </li>
