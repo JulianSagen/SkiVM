@@ -78,9 +78,23 @@ include_once('navbar.php');
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
         <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
-        <?php
+        <script type="text/javascript">
 
-        ?>
+            var url = "getdata.php?requesttype=getUsers";
+
+            $.getJSON(url,function(data){
+                var userinfo = '';
+                for(row in data){
+                    userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
+                }
+
+
+
+                $("#tabellBrukere").append("<table class=\"table\" id=\"table-props\">" +
+                    "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" +
+                    userinfo + "</table>");
+            });
+        </script>
     </div>
 </article>
 <footer class="panel-footer">

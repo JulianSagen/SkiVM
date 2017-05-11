@@ -42,7 +42,7 @@ if(true){ ?>
 
                             ?>
                             <li><a href="index.php">Profil</a></li>
-                            <li><a href="index.php">Logg Ut</a></li>
+                            <li><a href="index.php" onclick='logOut()'>Logg Ut</a></li>
                         </ul>
                     </li>
                 </ul>

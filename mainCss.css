@@ -154,9 +154,6 @@ article {
 #table-props2 {
     background-color: #e6e6e6;
 }
-#dropdown{
-    z-index: 4000;
-}
 .panel-footer > table{
     width:50%;
     margin: auto;
