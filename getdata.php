@@ -9,11 +9,14 @@ if($db->connect_error)
 }
 
 switch($typeforespørsel){
-    case "getUsers":
+    case "getusers":
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
-    case "getAthleates":
+    case "getathletes":
         $sql = "SELECT athleteid, athletename from athletes";
+        break;
+    case "getsport":
+        $sql = "SELECT sportid, sportname from sports";
         break;
 }
 $resultat = $db->query($sql);
@@ -28,3 +31,4 @@ $rows[] = $r;
 }
 $utdata = json_encode($rows);
 echo $utdata;
+die();

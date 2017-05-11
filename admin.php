@@ -46,25 +46,7 @@ include_once('navbar.php');
     <!--Innhold i admin -->
     <h1 id="tittleAdmin">Admin Konsoll</h1>
     <h2 id="tittle">Registrerte Brukere</h2>
-    <div id="tabellBrukere">
-        <script type="text/javascript">
-
-            var url = "getdata.php?requesttype=getUsers";
-
-            $.getJSON(url,function(data){
-                var userinfo = '';
-                for(row in data){
-                    userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
-                }
-
-
-
-            $("#tabellBrukere").append("<table class=\"table\" id=\"table-props\">" +
-                "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" +
-                userinfo + "</table>");
-            });
-        </script>
-
+    <div class="tabeller" id="tabellusers">
     </div>
     <table class="table">
         <tr>
@@ -96,47 +78,55 @@ include_once('navbar.php');
 
         <tr>
             <td id="T">
-                <div id="tabellBrukere">
+                <div class="tabeller" id="tabellsports">
                     <!-- TODO Legg inn tabell til Øvelser-->
                     <?php
-                    $sql = "SELECT * from sports";
-                    $resultatOvelse = mysqli_query($db, $sql);
+                   // "<table class=\"table\" id=\"table-props\">" +
+                   // "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>";
 
-                    echo "<table class=\"table\" id=\"table-props\">";
-                    echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>";
-                    while ($row = mysqli_fetch_array($resultatOvelse)) {   //Creates a loop to loop through results
-                    echo "<tr><th>" . $row['sportid'] . "</th><td >" . $row['sportname'] . "</td></tr>";
-                    }
-                    echo "</table>";
+                 //   while ($row = mysqli_fetch_array($resultatOvelse)) {
+                   // echo "<tr><th>" . $row['sportid'] . "</th><td >" . $row['sportname'] . "</td></tr>";
+                  //  }
+
+
+                    //echo "</table>";
                     ?>
 
                 </div>
             </td>
             <td id="B">
-                <div id="tabellBrukere">
-                    <!-- TODO legg inn tabell til Atleter-->
-                    <?php
-                    $sql = "SELECT * from athletes";
-                    $resultatAtlet = mysqli_query($db, $sql);
-
-                    echo "<table class=\"table\" id=\"table-props2\">";
-                    echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Atlet: </th></tr></thead>";
-                    while ($row = mysqli_fetch_array($resultatAtlet)) {   //Creates a loop to loop through results
-                        echo "<tr><th>" . $row['athleteid'] . "</th><td >" . $row['athletename'] . "</td></tr>";
-                    }
-                    echo "</table>";
-                    ?>
-
+                <div class="tabeller" id="tabellAthletes">
                 </div>
             </td>
         </tr>
     </table>
 </article>
+<script type="text/javascript">
+    var urluser = "getdata.php?requesttype=getusers";
+    var urlathlete = "getdata.php?requesttype=getathletes";
+    var urlsport = "getdata.php?requesttype=getsport";
+    $.getJSON(urluser,function(data){
+        var userinfo = '';
+        for(row in data){
+            userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
+        }
+        $("#tabellusers").append("<table class=\"table\" id=\"table-props\">" +
+            "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" + userinfo + "</table>");
+    });
 
+    $.getJSON(urlathlete,function(data){
+        var athleteinfo = '';
+        for(row in data){
+            athleteinfo += "<tr><th>" + data[row].athleteid + "</th><td >" + data[row].athletename + "</td></tr>";
+        }
+        $("#tabellAthletes").append("<table class=\"table\" id=\"table-props2\">" + athleteinfo + "</table>");
+    });
+
+
+
+</script>
 <script src="dist/js/bootstrap.js"></script>
-<?php
-mysqli_close($db);
-?>
+
 
 </body>
 </html>

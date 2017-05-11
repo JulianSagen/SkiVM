@@ -27,7 +27,7 @@ function checklogin($username, $password)
     $sql = 'SELECT password FROM users WHERE username="' . $username . '";';
 
     $resultat = $db->query($sql);
-    if(!$resultat)   {
+    if(!$resultat){
         die("Kunne ikke finne bruker i databasen");
     }
 
