@@ -78,7 +78,9 @@ include_once('navbar.php');
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
         <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
+        <?php
 
+        ?>
     </div>
 </article>
 <footer class="panel-footer">
