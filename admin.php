@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    session_regenerate_id();
-    if(!isset($_SESSION['login_user']))      // if there is no valid session
-    {
-        header("Location: index.php");
-    }
+session_start();
+session_regenerate_id();
+if (!isset($_SESSION['login_user']))      // if there is no valid session
+{
+    header("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,16 +86,82 @@
         echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>";
         while ($row = mysqli_fetch_array($resultat)) {   //Creates a loop to loop through results
             echo "<tr><th >" . $row['userid'] . "</th><td >" . $row['username'] . "</td><td>" . $row['fullnavn'] . "</td><td>";
-            echo $row['email'] . "</td><td>".$row['phonenr'] . "</td><td>" . $row['address'] . "</td></tr>";
+            echo $row['email'] . "</td><td>" . $row['phonenr'] . "</td><td>" . $row['address'] . "</td></tr>";
         }
         echo "</table>";
-        mysqli_close($db);
         ?>
     </div>
+    <table class="table">
+        <tr>
+            <td><h2 id="tittleOvelse">Opprett Øvelse</h2></td>
+            <td><h2 id="tittleAtlet">Opprett Atlet</h2></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="tabellOvelser">
+                    <!-- TODO legge inn From til Øvelser-->
+                    <form action="admin.php" method="get">
+                        <div id="TextTBox">Øvelse: </div>     <input type="text" name="ovelse" placeholder="Skriv øvelse her.." ><br><br>
+                        <input type="submit" value="Registrer">
+                    </form>
+
+            </div>
+            </td>
+            <td>
+                <div id="tabellAtleter">
+                    <!-- TODO legg inn form til Atleter-->
+                    <form action="admin.php" method="get">
+                        <div id="TextTBox">Atlet:</div>     <input type="text" name="atlet" placeholder="Skriv atlet her.." ><br><br>
+
+                        <input type="submit" value="Registrer">
+                    </form>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td id="T">
+                <div id="tabellBrukere">
+                    <!-- TODO Legg inn tabell til Øvelser-->
+                    <?php
+                    $sql = "SELECT * from sports";
+                    $resultatOvelse = mysqli_query($db, $sql);
+
+                    echo "<table class=\"table\" id=\"table-props\">";
+                    echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>";
+                    while ($row = mysqli_fetch_array($resultatOvelse)) {   //Creates a loop to loop through results
+                    echo "<tr><th>" . $row['sportid'] . "</th><td >" . $row['sportname'] . "</td></tr>";
+                    }
+                    echo "</table>";
+                    ?>
+
+                </div>
+            </td>
+            <td id="B">
+                <div id="tabellBrukere">
+                    <!-- TODO legg inn tabell til Atleter-->
+                    <?php
+                    $sql = "SELECT * from athletes";
+                    $resultatAtlet = mysqli_query($db, $sql);
+
+                    echo "<table class=\"table\" id=\"table-props2\">";
+                    echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Atlet: </th></tr></thead>";
+                    while ($row = mysqli_fetch_array($resultatAtlet)) {   //Creates a loop to loop through results
+                        echo "<tr><th>" . $row['athleteid'] . "</th><td >" . $row['athletename'] . "</td></tr>";
+                    }
+                    echo "</table>";
+                    ?>
+
+                </div>
+            </td>
+        </tr>
+    </table>
 </article>
 
 <script src="dist/js/bootstrap.js"></script>
-
+<?php
+mysqli_close($db);
+?>
 
 </body>
 </html>

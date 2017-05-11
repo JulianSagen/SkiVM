@@ -48,7 +48,7 @@ article {
     position: relative;
     margin-left: 15%;
     width: 70%;
-    height: 1000px;
+    height: 1600px;
 }
 
  #modal{
@@ -79,6 +79,14 @@ article {
      padding-left: 5%;
      padding-top: 4%;
      color: #0f0f0f;
+ }
+
+ #tittleOvelse {
+     margin-left: 30%;
+ }
+
+ #tittleAtlet {
+     margin-left: 30%;
  }
 
 #tittleAdmin {
@@ -128,6 +136,30 @@ article {
     border-color: #122b40;
 }
 
+.listTabell {
+
+}
+
+#tabellOvelser {
+    padding: 2%;
+    padding-left: 30%;
+    display: block;
+    background-color: #e6e6e6;
+
+}
+
+#tabellAtleter {
+    padding: 2%;
+    padding-left: 30%;
+    display: block;
+    background-color: #e6e6e6;
+
+}
+
 #table-props {
+    background-color: #e6e6e6;
+}
+
+#table-props2 {
     background-color: #e6e6e6;
 }
