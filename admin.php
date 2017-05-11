@@ -72,25 +72,24 @@
     <h1 id="tittleAdmin">Admin Konsoll</h1>
     <h2 id="tittle">Registrerte Brukere</h2>
     <div id="tabellBrukere">
-        <?php
-        $db = new mysqli("student.cs.hioa.no", "s315584", "", "s315584");
-        if ($db->connect_error) {
-            echo $db->connect_error;
-            die("Kunne ikke koble til databasen");
-        }
+        <script type="text/javascript">
 
-        $sql = "SELECT * from users";
-        $resultat = mysqli_query($db, $sql);
+            var url = "getdata.php?requesttype=getUsers";
 
-        echo "<table class=\"table\" id=\"table-props\">";
-        echo "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>";
-        while ($row = mysqli_fetch_array($resultat)) {   //Creates a loop to loop through results
-            echo "<tr><th >" . $row['userid'] . "</th><td >" . $row['username'] . "</td><td>" . $row['fullnavn'] . "</td><td>";
-            echo $row['email'] . "</td><td>".$row['phonenr'] . "</td><td>" . $row['address'] . "</td></tr>";
-        }
-        echo "</table>";
-        mysqli_close($db);
-        ?>
+            $.getJSON(url,function(data){
+                var userinfo = '';
+                for(row in data){
+                    userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
+                }
+
+
+
+            $("#tabellBrukere").append("<table class=\"table\" id=\"table-props\">" +
+                "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" +
+                userinfo + "</table>");
+            });
+        </script>
+
     </div>
 </article>
 

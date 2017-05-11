@@ -7,44 +7,143 @@
       <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="information_schema"/>
-    <table id="4" parent="2" name="users"/>
-    <column id="5" parent="4" name="userid">
+    <table id="4" parent="2" name="athleteduingsport"/>
+    <table id="5" parent="2" name="athletes"/>
+    <table id="6" parent="2" name="sports"/>
+    <table id="7" parent="2" name="ticketid"/>
+    <table id="8" parent="2" name="users"/>
+    <column id="9" parent="4" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="6" parent="4" name="username">
+    <column id="10" parent="4" name="sportid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="4" name="athleteid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="12" parent="4" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="13" parent="5" name="athleteid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="5" name="athletename">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="7" parent="4" name="password">
-      <Position>3</Position>
+    <key id="15" parent="5" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>athleteid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="16" parent="6" name="sportid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="6" name="sportname">
+      <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="8" parent="4" name="fullnavn">
+    <key id="18" parent="6" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sportid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="19" parent="7" name="ticketid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="7" name="userid">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="sportid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="22" parent="7" name="sportid_idx">
+      <ColNames>sportid</ColNames>
+    </index>
+    <index id="23" parent="7" name="userid_idx">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="24" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ticketid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="7" name="userid">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>s315584</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userid</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="7" name="sportid">
+      <ColNames>sportid</ColNames>
+      <RefSchemaName>s315584</RefSchemaName>
+      <RefTableName>sports</RefTableName>
+      <RefColNames>sportid</RefColNames>
+    </foreign-key>
+    <column id="27" parent="8" name="userid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="8" name="username">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="8" name="password">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="8" name="fullnavn">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="9" parent="4" name="email">
+    <column id="31" parent="8" name="email">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="10" parent="4" name="phonenr">
+    <column id="32" parent="8" name="phonenr">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="11" parent="4" name="address">
+    <column id="33" parent="8" name="address">
       <Position>7</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="12" parent="4" name="PRIMARY">
+    <column id="34" parent="8" name="isadmin">
+      <Position>8</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <key id="35" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>
