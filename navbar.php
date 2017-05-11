@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(true){ ?>
     <nav id="navbar" class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -13,8 +14,6 @@ if(true){ ?>
                 <ul class="nav navbar-nav navbar-right" id="loginNav">
                     <?php
                     /* TODO make this only show if user is signed in*/
-                    session_start();
-                    session_regenerate_id();
                     if (isset($_SESSION['login_user'])) {
                         $user = $_SESSION['login_user'];
                         echo "<p class='navbar-text'>Signed in as: " . $user . "</p>";
@@ -37,6 +36,7 @@ if(true){ ?>
                     if($userIsAdmin){
                         echo "<li><a id=\"admin\" href=\"admin.php\">Admin</a></li>";
                     }
+
                     ?>
                 </ul>
 
@@ -44,4 +44,5 @@ if(true){ ?>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-<?php } ?>
+<?php }
+?>
