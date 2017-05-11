@@ -13,11 +13,14 @@ if(true){ ?>
                 <ul class="nav navbar-nav navbar-right" id="loginNav">
                     <?php
                     /* TODO make this only show if user is signed in*/
-                    $userIsSignedIn = true;
-                    if($userIsSignedIn){
-                        echo "<p class='navbar-text'>Signed in as: CoolKid69 </p>";
+                    session_start();
+                    session_regenerate_id();
+                    if (isset($_SESSION['login_user'])) {
+                        $user = $_SESSION['login_user'];
+                        echo "<p class='navbar-text'>Signed in as: " . $user . "</p>";
                     }
                     ?>
+
                     <li>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Login">Log In
                         </button>

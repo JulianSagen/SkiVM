@@ -49,24 +49,6 @@ include_once('navbar.php');
         <input type="submit" value="Registrer">
     </form>
     </div>
-    <!-- Registrer Modal --><!--
-    <div class="modal fade Registrer" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-
-            <div class="modal-content">
-                <div id="modal">
-                    <h2 class="h2">Registrer</h2>
-                    <input type="text" placeholder="Username" onsubmit="catch "><br>
-                    <input type="password" placeholder="Password" onsubmit="catch ">
-                    <br>
-                    <div id="log-head">
-                        <button class="btn btn-success" type="submit">Create user</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
 </article>
 <script src="dist/js/bootstrap.js"></script>
 
