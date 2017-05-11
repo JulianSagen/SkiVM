@@ -31,7 +31,7 @@
                 /* TODO make this only show if user is signed in*/
                 $userIsSignedIn = true;
                 if($userIsSignedIn){
-                    echo "<p class='navbar-text'>Signed in as: </p>";
+                    echo "<p class='navbar-text'>Signed in as: CoolKid69 </p>";
                 }
                 ?>
                 <li>
@@ -120,7 +120,7 @@
 <article id="downer">
     <div id="tittle">
         <h1>Welcome to ski VM in Norway</h1>
-        <p>Register a user if you want to join yourself!</p>
+        <p>Register a user if you want to join the events as a viewer!</p>
         <ul>
             <li>Ski jumping</li>
             <li>Langrenn</li>
