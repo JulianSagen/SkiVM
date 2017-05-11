@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(true){ ?>
     <nav id="navbar" class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -45,7 +46,7 @@ if(true){ ?>
 
                             ?>
                             <li><a href="index.php">Profil</a></li>
-                            <li><a href="index.php" onclick='logOut()'>Logg Ut</a></li>
+                            <li><a href="logout.php">Logg Ut</a></li>
                         </ul>
                     </li
                         <?php }
