@@ -79,19 +79,6 @@ include_once('navbar.php');
         <tr>
             <td id="T">
                 <div class="tabeller" id="tabellsports">
-                    <!-- TODO Legg inn tabell til Øvelser-->
-                    <?php
-                   // "<table class=\"table\" id=\"table-props\">" +
-                   // "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>";
-
-                 //   while ($row = mysqli_fetch_array($resultatOvelse)) {
-                   // echo "<tr><th>" . $row['sportid'] . "</th><td >" . $row['sportname'] . "</td></tr>";
-                  //  }
-
-
-                    //echo "</table>";
-                    ?>
-
                 </div>
             </td>
             <td id="B">
@@ -104,7 +91,7 @@ include_once('navbar.php');
 <script type="text/javascript">
     var urluser = "getdata.php?requesttype=getusers";
     var urlathlete = "getdata.php?requesttype=getathletes";
-    var urlsport = "getdata.php?requesttype=getsport";
+    var urlsport = "getdata.php?requesttype=getsports";
     $.getJSON(urluser,function(data){
         var userinfo = '';
         for(row in data){
@@ -119,7 +106,15 @@ include_once('navbar.php');
         for(row in data){
             athleteinfo += "<tr><th>" + data[row].athleteid + "</th><td >" + data[row].athletename + "</td></tr>";
         }
-        $("#tabellAthletes").append("<table class=\"table\" id=\"table-props2\">" + athleteinfo + "</table>");
+        $("#tabellAthletes").append("<table class=\"table\" id=\"table-props2\"><thead class=\"thead-inverse\"><tr><th> # </th><th> Atlet: </th></tr></thead>" + athleteinfo + "</table>");
+    });
+
+    $.getJSON(urlsport,function(data){
+        var sportinfo = '';
+        for(row in data){
+            sportinfo += "<tr><th>" + data[row].sportid + "</th><td >" + data[row].sportname + "</td></tr>";
+        }
+        $("#tabellsports").append("<table class=\"table\" id=\"table-props\">" + "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>" + sportinfo + "</table>");
     });
 
 

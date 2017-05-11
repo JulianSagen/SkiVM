@@ -15,7 +15,7 @@ switch($typeforespørsel){
     case "getathletes":
         $sql = "SELECT athleteid, athletename from athletes";
         break;
-    case "getsport":
+    case "getsports":
         $sql = "SELECT sportid, sportname from sports";
         break;
 }
