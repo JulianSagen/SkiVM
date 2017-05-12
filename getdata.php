@@ -32,6 +32,13 @@ switch($typeforespørsel){
     case "getsports":
         $sql = "SELECT sportid, sportname FROM sports";
         break;
+    case "getLoggedOn":
+        if(isset($_SESSION['login_user'])){
+            echo json_encode(true);
+        }
+        else echo json_encode(false);;
+        die();
+        break;
     case "getuserattending":
         $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;

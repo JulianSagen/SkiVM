@@ -80,11 +80,17 @@ include_once('navbar.php');
     <!-- TODO show information about all the events-->
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
-        <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
-
+        <?php
+            if(isset($_SESSION['login_user'])){
+                echo "<p>Meld deg på en av arrangementene for å delta som tilskuer!</p>";
+            }
+            else echo "<p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>";
+        ?>
     </div>
     <div id="sportsDiv" class="tabeller">
 
+    </div>
+    <div id="outputMelding">
     </div>
 </article>
 <footer class="panel-footer">
@@ -110,20 +116,41 @@ include_once('navbar.php');
 <script src="dist/js/bootstrap.js"></script>
 <script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
-    var loggedOn=true;
-    var topField="";
-    var bottomField="";
-    if(loggedOn){
-        topField="<th>Påmelding:</th>";
-        bottomField="<th><button type=\"button\" id=\"joinButton\" class=\"btn btn-success\">Meld deg på!</button></th>";
-    }
+    var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
+    var headerName="";
+    var buttonInTable="";
+    $.getJSON(urlLoggedOn, function (data) {
+        if (data === true) {
+            headerName="<th>Påmelding:</th>";
+            buttonInTable="<th><button type=\"button\" class=\"joinButton\" onclick=\"regTicket(1)\" class=\"btn btn-success\">Meld deg på!</button></th>";
+        }
+    });
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
+        var value = 0;
         for (var row in data) {
-            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + bottomField + "</tr>";
+            if(buttonInTable!==""){
+                //TODO give buttonInTable new value with sport id
+                value ++;
+                buttonInTable="<th><button type=\"button\" class=\"joinButton\" value=\"" + value +"\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg på!</button></th>";
+            }
+            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
         }
-        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Øvelser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
+        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
+    function regTicket(sportVal) {
+        console.log("button pressed");
+        var sportid=sportVal;
+        var userid = 1; //TODO
+        var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
+        $.getJSON(urlregticket, function (data) {
+            if (data === "OK") {
+                $("#outputMelding").text("Du er nå med!");
+            } else {
+                $("#outputMelding").text("Error: noe rart skjedde og du ble ikke med :(");
+            }
+        });
+    }
 </script>
 
 </body>

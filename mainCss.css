@@ -110,6 +110,12 @@ article {
     text-decoration: underline;
 }
 
+#tittleProfile {
+    padding-left: 10%;
+    padding-top:10%;
+    color: #122b40;
+}
+
  #myCarousel {
      width: 100%;
  }
@@ -124,7 +130,6 @@ article {
  }
 
 #big {
-    font-family: "Baskerville Old Face";
     font-size: 60px;
     text-align: center;
 }
@@ -184,7 +189,43 @@ article {
 }
 #sportsDiv th{
     width: 50%;
+    text-align: center;
 }
 #sportsDiv td{
     width: 50%;
+    text-align: center;
+}
+
+#profiltabell {
+    padding: 2%;
+}
+
+#profilinfo {
+    padding-left: 100px;
+    margin-left: 100px;
+    z-index: 100;
+    width: 200px;
+    height: 400px;
+    display: block;
+    background-color: #b9def0;
+}
+
+#profilTab {
+    padding-left: 2%;
+    margin-left: 180px;
+    z-index: 100;
+    width: 600px;
+    height: 400px;
+    display: block;
+    background-color: #b9def0;
+}
+
+#profilBar {
+    padding-left: 2%;
+    margin-left: 100px;
+    z-index: 100;
+    width: 150px;
+    height: 400px;
+    display: block;
+    background-color: #b9def0;
 }
