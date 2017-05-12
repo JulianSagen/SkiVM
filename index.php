@@ -141,7 +141,7 @@ include_once('navbar.php');
     function regTicket(sportVal) {
         console.log("button pressed");
         var sportid=sportVal;
-        var userid = 1;
+        var userid = 1; //TODO
         var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
         $.getJSON(urlregticket, function (data) {
             if (data === "OK") {
