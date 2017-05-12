@@ -4,10 +4,11 @@
     $username = $_GET["username"];
     $password = $_GET["password"];
 
-    if(checklogin($username, $password)){
+    if(checklogin($username, $password) == "isAdmin" || checklogin($username, $password) == "isAdmin"){
         echo "Gratulerer du har nå blitt innlogget";
-        $_SESSION['user_role']="admin";
-
+        if(checklogin($username, $password) == "isAdmin") {
+            $_SESSION['user_role'] = "admin";
+        }
     }else{
         echo "Your password is useless";
     }
