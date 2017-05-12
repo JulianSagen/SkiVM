@@ -9,6 +9,12 @@ function getuser(){
    return $user;
 
 }
+function isLoggedOn(){
+    if(isset($_SESSION['login_user'])){
+        return true;
+    }
+    else return false;
+}
 
 
 
@@ -34,7 +40,13 @@ switch($typeforespørsel){
         break;
     case "getusersattending":
         $sql = "SELECT sportid, sportname from sports";
-
+    case "getLoggedOn":
+        if(isset($_SESSION['login_user'])){
+            echo json_encode(true);
+        }
+        else echo json_encode(false);;
+        die();
+        break;
     default:
         $db->close();
         echo json_encode(null);

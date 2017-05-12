@@ -110,13 +110,15 @@ include_once('navbar.php');
 <script src="dist/js/bootstrap.js"></script>
 <script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
-    var loggedOn=true;
+    var loggedOn = "getdata.php?requesttype=getLoggedOn";
     var topField="";
     var bottomField="";
-    if(loggedOn){
-        topField="<th>Påmelding:</th>";
-        bottomField="<th><button type=\"button\" id=\"joinButton\" class=\"btn btn-success\">Meld deg på!</button></th>";
-    }
+    $.getJSON(loggedOn, function (data) {
+        if (data == true) {
+            topField="<th>Påmelding:</th>";
+            bottomField="<th><button type=\"button\" id=\"joinButton\" class=\"btn btn-success\">Meld deg på!</button></th>";
+        }
+    });
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
         for (var row in data) {
