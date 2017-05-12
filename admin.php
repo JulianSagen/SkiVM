@@ -116,10 +116,13 @@ include_once('navbar.php');
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
         for (row in data) {
+            var i = Object.keys(row).indexOf(data);
             sportinfo += "<tr><th>" + data[row].sportid + "</th><td >" + data[row].sportname + "</td></tr>";
         }
         $("#tabellsports").append("<table class=\"table\" id=\"table-props\">" + "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>" + sportinfo + "</table>");
     });
+
+
 
     function regsport() {
         var urlregsport = "setdata.php?requesttype=regsport&sportname=" + $('#sportname').val();
@@ -144,6 +147,23 @@ include_once('navbar.php');
             }
         });
     }
+
+    $(document).ready(function() {
+        $("#tabellusers ").on( 'click', 'tr', function() {
+            var thistabel = this;
+            var urluserattending = "getdata.php?requesttype=getuserattending&userid=" + $( this ).children('th').text();
+            console.log( $( this ).children('th').text() );
+            $.getJSON(urluserattending, function (data) {
+                var sportinfo = '';
+                for (row in data) {
+                    var i = Object.keys(row).indexOf(data);
+                    sportinfo += "<tr><td >" + data[row].sportname + "</td></tr>";
+                }
+                $(thistabel).after(sportinfo);
+            });
+
+        });
+    });
 
 </script>
 <script src="dist/js/bootstrap.js"></script>

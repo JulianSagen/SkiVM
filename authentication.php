@@ -46,7 +46,7 @@ function checklogin($username, $password)
         }
         return "isUser";
     }else{
-        return null;
+
     }
 
 
