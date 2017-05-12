@@ -6,7 +6,7 @@
 
     if(checklogin($username, $password)){
         echo "Gratulerer du har nå blitt innlogget";
-        $_SESSION['login_user']=$username;
+        $_SESSION['user_role']="admin";
 
     }else{
         echo "Your password is useless";

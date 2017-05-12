@@ -110,12 +110,19 @@ include_once('navbar.php');
 <script src="dist/js/bootstrap.js"></script>
 <script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
+    var loggedOn=true;
+    var topField="";
+    var bottomField="";
+    if(loggedOn){
+        topField="<th>Påmelding:</th>";
+        bottomField="<th><button type=\"button\" id=\"joinButton\" class=\"btn btn-success\">Meld deg på!</button></th>";
+    }
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
-        for (row in data) {
-            sportinfo += "<tr><td >" + data[row].sportname + "</td><th><button type=\"button\" class=\"btn btn-success\">Meld deg på!</button></th></tr>";
+        for (var row in data) {
+            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + bottomField + "</tr>";
         }
-        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Øvelser: </th><th>Påmelding: </th></tr></thead>" + sportinfo + "</table>");
+        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Øvelser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
     });
 </script>
 
