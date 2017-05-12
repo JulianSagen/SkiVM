@@ -39,7 +39,7 @@ include_once('navbar.php');
         </div>
     </div>
     <h1 id="tittleAdmin">Din Profil</h1>
-    
+
 
 </article>
 <script src="dist/js/bootstrap.js"></script>
