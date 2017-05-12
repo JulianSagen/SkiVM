@@ -108,7 +108,7 @@ include_once('navbar.php');
     </table>
 </footer>
 <script src="dist/js/bootstrap.js"></script>
-<script type="text/javascript">
+<script type="text/javascript"><!-- writes the table -->
     var urlsport = "getdata.php?requesttype=getsports";
     var loggedOn = "getdata.php?requesttype=getLoggedOn";
     var topField="";
