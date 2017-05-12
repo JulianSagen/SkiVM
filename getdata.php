@@ -9,14 +9,8 @@ function getuser(){
    return $user;
 
 }
-function isLoggedOn(){
-    if(isset($_SESSION['login_user'])){
-        return true;
-    }
-    else return false;
-}
 
-
+include "inputvalidation.php";
 
 $typeforespørsel = $_GET['requesttype'];
 
@@ -33,19 +27,23 @@ switch($typeforespørsel){
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
     case "getathletes":
-        $sql = "SELECT athleteid, athletename from athletes";
+        $sql = "SELECT athleteid, athletename FROM athletes";
         break;
     case "getsports":
-        $sql = "SELECT sportid, sportname from sports";
+        $sql = "SELECT sportid, sportname FROM sports";
         break;
-    case "getusersattending":
-        $sql = "SELECT sportid, sportname from sports";
     case "getLoggedOn":
         if(isset($_SESSION['login_user'])){
             echo json_encode(true);
         }
         else echo json_encode(false);;
         die();
+        break;
+    case "getuserattending":
+        $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
+        break;
+    case "getattendingusers":
+        $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;
     default:
         $db->close();

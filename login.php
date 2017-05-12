@@ -4,10 +4,9 @@
     $username = $_GET["username"];
     $password = $_GET["password"];
 
-    if(checklogin($username, $password)){
+    if(!empty(checklogin($username, $password))){
         echo "Gratulerer du har nå blitt innlogget";
-        $isAdmin=true;
-        if($isAdmin) {
+        if(checklogin($username, $password) == "isAdmin") {
             $_SESSION['user_role'] = "admin";
         }
         $_SESSION['login_user']=$username;

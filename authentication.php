@@ -5,13 +5,9 @@
  * Date: 10.05.2017
  * Time: 13.17
  */
-
-
 function encryptPasswordHash($password)
 {
-
    $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
-
    return $encryptedPassword;
 }
 
@@ -24,7 +20,7 @@ function checklogin($username, $password)
         die("Kunne ikke koble til databasen");
     }
 
-    $sql = 'SELECT password FROM users WHERE username="' . $username . '";';
+    $sql = 'SELECT password, isadmin FROM users WHERE username="' . $username . '";';
 
     $resultat = $db->query($sql);
     if(!$resultat){
@@ -45,9 +41,12 @@ function checklogin($username, $password)
 
     if(password_verify($password, $passfromDB))
     {
-        return true;
+        if ($row['isadmin']===1){
+            return "isAdmin";
+        }
+        return "isUser";
     }else{
-        return false;
+        return null;
     }
 
 

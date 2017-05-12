@@ -20,3 +20,60 @@ function validateid($id){
     }
     return false;
 }
+
+
+
+
+function getsportname(){
+    $sportname = $_GET['sportname'];
+    if(validatename($sportname)){
+        return $sportname;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+
+function getathletename(){
+    $athletename = $_GET['athletename'];
+    if(validatename($athletename)){
+        return $athletename;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+
+function getsportid(){
+    $sportid = $_GET['sportid'];
+    if(validateid($sportid)){
+        return $sportid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+function getuserid(){
+    $userid = $_GET['userid'];
+    if(validateid($userid)){
+        return $userid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+
+function getathleteid(){
+    $athleteid = $_GET['athleteid'];
+    if(validateid($athleteid)){
+        return $athleteid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
