@@ -57,21 +57,20 @@ include_once('navbar.php');
             <td>
                 <div id="tabellOvelser">
                     <!-- TODO legge inn From til Øvelser-->
-                    <form action="admin.php" method="get">
-                        <div id="TextTBox">Øvelse: </div>     <input type="text" name="ovelse" placeholder="Skriv øvelse her.." ><br><br>
-                        <input type="submit" value="Registrer">
-                    </form>
+
+                        <div id="TextTBox">Øvelse: </div>     <input type="text" name="sportname" id="sportname" placeholder="Skriv øvelse her.." ><br><br>
+                        <input type="submit" id="regsport" value="Registrer" onclick="regsport()"><div id="messageregsport"></div>
+
 
             </div>
             </td>
             <td>
                 <div id="tabellAtleter">
                     <!-- TODO legg inn form til Atleter-->
-                    <form action="admin.php" method="get">
-                        <div id="TextTBox">Atlet:</div>     <input type="text" name="atlet" placeholder="Skriv atlet her.." ><br><br>
 
-                        <input type="submit" value="Registrer">
-                    </form>
+                        <div id="TextTBox">Atlet:</div>     <input type="text" name="athletename" id="athletename" placeholder="Skriv atlet her.." ><br><br>
+
+                        <input type="submit" value="Registrer" onclick="regathlete()"><div id="messageregathlete"></div>
                 </div>
             </td>
         </tr>
@@ -117,7 +116,32 @@ include_once('navbar.php');
         $("#tabellsports").append("<table class=\"table\" id=\"table-props\">" + "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>" + sportinfo + "</table>");
     });
 
+    function regsport(){
+        var urlregsport = "setdata.php?requesttype=regsport&sportname=" + $('#sportname').val();
+        console.log(urlregsport);
+        $.getJSON(urlregsport,function(data){
+           if(data === "OK"){
+               $("#messageregsport").text("Grenen har blitt opprettet");
+           }else{
+               $("#messageregsport").text(data);
+           }
 
+
+
+    });
+    }
+
+    function regathlete(){
+        var urlregsport = "setdata.php?requesttype=regathlete&athletename=" + $('#athletename').val();
+        console.log(urlregsport);
+        $.getJSON(urlregsport,function(data){
+            if(data === "OK"){
+                $("#messageregathlete").text("Utdøveren har nå blitt lagt til");
+            }else{
+                $("#messageregathlete").text(data);
+            }
+        });
+    }
 
 </script>
 <script src="dist/js/bootstrap.js"></script>
