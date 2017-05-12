@@ -38,7 +38,9 @@ include_once('navbar.php');
             </div>
         </div>
     </div>
-    <h1 id="tittleAdmin">Din Profil</h1>
+    <h1 id="tittleProfile">Din Profil</h1>
+    <table id="profilTabell"><tr><td><div id="profilinfo"></div></td><td><div id="profilTab"></div></td><td><div id="profilBar" </td></tr><tr><td><div id="tabellOvelser" </td></tr></table>
+
 
 
 </article>
