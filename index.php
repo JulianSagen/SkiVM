@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <title>Ski VM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="dist/css/bootstrap.css" rel="stylesheet">
     <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -11,6 +12,8 @@
 </head>
 <body>
 <?php
+session_start();
+session_regenerate_id();
 include_once('navbar.php');
 ?>
 
@@ -78,47 +81,43 @@ include_once('navbar.php');
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
         <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
-        <script type="text/javascript">
 
-            var url = "getdata.php?requesttype=getUsers";
+    </div>
+    <div id="sportsDiv" class="tabeller">
 
-            $.getJSON(url,function(data){
-                var userinfo = '';
-                for(row in data){
-                    userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
-                }
-
-
-
-                $("#tabellBrukere").append("<table class=\"table\" id=\"table-props\">" +
-                    "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" +
-                    userinfo + "</table>");
-            });
-        </script>
     </div>
 </article>
 <footer class="panel-footer">
     <table>
         <tr>
             <td>
-              hey1
+               Vet ikke
             </td>
             <td>
-hey2
+                hva
             </td>
         </tr>
         <tr>
             <td>
-                hey1
+                vi skal
             </td>
             <td>
-                hey2
+                ha her rip
             </td>
         </tr>
     </table>
 </footer>
 <script src="dist/js/bootstrap.js"></script>
-
+<script type="text/javascript">
+    var urlsport = "getdata.php?requesttype=getsports";
+    $.getJSON(urlsport, function (data) {
+        var sportinfo = '';
+        for (row in data) {
+            sportinfo += "<tr><td >" + data[row].sportname + "</td><th><button type=\"button\" class=\"btn btn-success\">Meld deg på!</button></th></tr>";
+        }
+        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Øvelser: </th><th>Påmelding: </th></tr></thead>" + sportinfo + "</table>");
+    });
+</script>
 
 </body>
 </html>

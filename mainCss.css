@@ -45,7 +45,7 @@ article {
     position: relative;
     margin-left: 15%;
     width: 70%;
-    height: 1600px;
+    height: auto;
 }
 
  #modal{
@@ -158,4 +158,15 @@ article {
     width:50%;
     margin: auto;
     text-align: center;
+}
+#sportsDiv{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+#sportsDiv th{
+    width: 50%;
+}
+#sportsDiv td{
+    width: 50%;
 }
