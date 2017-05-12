@@ -159,3 +159,14 @@ article {
     margin: auto;
     text-align: center;
 }
+#sportsDiv{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+#sportsDiv th{
+    width: 50%;
+}
+#sportsDiv td{
+    width: 50%;
+}
