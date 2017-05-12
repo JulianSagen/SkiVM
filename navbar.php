@@ -16,8 +16,7 @@ if(true){ ?>
                     <?php
                     /* this only show if user is signed in*/
                     if (isset($_SESSION['login_user'])) {
-                        $user = $_SESSION['login_user'];
-                        echo "<p class='navbar-text'>Logget inn som: " . $user . "</p>";
+                        echo "<p class='navbar-text'>Logget inn som: " . $_SESSION['login_user'] . "</p>";
                     }
                     ?>
 

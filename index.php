@@ -80,8 +80,12 @@ include_once('navbar.php');
     <!-- TODO show information about all the events-->
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
-        <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
-
+        <?php
+            if(isset($_SESSION['login_user'])){
+                echo "<p>Meld deg på en av arrangementene for å delta som tilskuer!</p>";
+            }
+            else echo "<p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>";
+        ?>
     </div>
     <div id="sportsDiv" class="tabeller">
 
@@ -124,7 +128,7 @@ include_once('navbar.php');
         for (var row in data) {
             sportinfo += "<tr><td >" + data[row].sportname + "</td>" + bottomField + "</tr>";
         }
-        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Øvelser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
+        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
     });
 </script>
 
