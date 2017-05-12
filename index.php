@@ -78,33 +78,19 @@ include_once('navbar.php');
     <div id="tittle">
         <h1>Velkommen til Ski-VM i Oslo</h1>
         <p>Registrer en bruker og meld deg på hvis du har lyst å være tilskuer!</p>
-        <script type="text/javascript">
+        <div id="sportsDiv" class="tabeller">
 
-            var url = "getdata.php?requesttype=getUsers";
-
-            $.getJSON(url,function(data){
-                var userinfo = '';
-                for(row in data){
-                    userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
-                }
-
-
-
-                $("#tabellBrukere").append("<table class=\"table\" id=\"table-props\">" +
-                    "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" +
-                    userinfo + "</table>");
-            });
-        </script>
+        </div>
     </div>
 </article>
 <footer class="panel-footer">
     <table>
         <tr>
             <td>
-              hey1
+                hey1
             </td>
             <td>
-hey2
+                hey2
             </td>
         </tr>
         <tr>
@@ -118,7 +104,21 @@ hey2
     </table>
 </footer>
 <script src="dist/js/bootstrap.js"></script>
+<script type="text/javascript">
+    var urlsport = "getdata.php?requesttype=getsports";
+    $.getJSON(urlsport, function (data) {
+        var sportinfo = '';
+        for (row in data) {
+            sportinfo += "<tr><th>" + data[row].sportid + "</th><td >" + data[row].sportname + "</td></tr>";
+        }
+        $("#sportsDiv").append("<table class=\"table\" id=\"table-props\">" + "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>" + sportinfo + "</table>");
+    });
+    function getAthletheDoingSport {//TODO
 
+    }
+    function regTicket() {//TODO
+    }
+</script>
 
 </body>
 </html>

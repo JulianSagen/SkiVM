@@ -58,19 +58,23 @@ include_once('navbar.php');
                 <div id="tabellOvelser">
                     <!-- TODO legge inn From til Øvelser-->
 
-                        <div id="TextTBox">Øvelse: </div>     <input type="text" name="sportname" id="sportname" placeholder="Skriv øvelse her.." ><br><br>
-                        <input type="submit" id="regsport" value="Registrer" onclick="regsport()"><div id="messageregsport"></div>
+                    <div id="TextTBox">Øvelse:</div>
+                    <input type="text" name="sportname" id="sportname" placeholder="Skriv øvelse her.."><br><br>
+                    <input type="submit" id="regsport" value="Registrer" onclick="regsport()">
+                    <div id="messageregsport"></div>
 
 
-            </div>
+                </div>
             </td>
             <td>
                 <div id="tabellAtleter">
                     <!-- TODO legg inn form til Atleter-->
 
-                        <div id="TextTBox">Atlet:</div>     <input type="text" name="athletename" id="athletename" placeholder="Skriv atlet her.." ><br><br>
+                    <div id="TextTBox">Atlet:</div>
+                    <input type="text" name="athletename" id="athletename" placeholder="Skriv atlet her.."><br><br>
 
-                        <input type="submit" value="Registrer" onclick="regathlete()"><div id="messageregathlete"></div>
+                    <input type="submit" value="Registrer" onclick="regathlete()">
+                    <div id="messageregathlete"></div>
                 </div>
             </td>
         </tr>
@@ -91,53 +95,50 @@ include_once('navbar.php');
     var urluser = "getdata.php?requesttype=getusers";
     var urlathlete = "getdata.php?requesttype=getathletes";
     var urlsport = "getdata.php?requesttype=getsports";
-    $.getJSON(urluser,function(data){
+    $.getJSON(urluser, function (data) {
         var userinfo = '';
-        for(row in data){
+        for (row in data) {
             userinfo += "<tr><th >" + data[row].userid + "</th><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
         }
         $("#tabellusers").append("<table class=\"table\" id=\"table-props\">" +
             "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" + userinfo + "</table>");
     });
 
-    $.getJSON(urlathlete,function(data){
+    $.getJSON(urlathlete, function (data) {
         var athleteinfo = '';
-        for(row in data){
+        for (row in data) {
             athleteinfo += "<tr><th>" + data[row].athleteid + "</th><td >" + data[row].athletename + "</td></tr>";
         }
         $("#tabellAthletes").append("<table class=\"table\" id=\"table-props2\"><thead class=\"thead-inverse\"><tr><th> # </th><th> Atlet: </th></tr></thead>" + athleteinfo + "</table>");
     });
 
-    $.getJSON(urlsport,function(data){
+    $.getJSON(urlsport, function (data) {
         var sportinfo = '';
-        for(row in data){
+        for (row in data) {
             sportinfo += "<tr><th>" + data[row].sportid + "</th><td >" + data[row].sportname + "</td></tr>";
         }
         $("#tabellsports").append("<table class=\"table\" id=\"table-props\">" + "<thead class=\"thead-inverse\"><tr><th> # </th><th> Øvelse: </th></tr></thead>" + sportinfo + "</table>");
     });
 
-    function regsport(){
+    function regsport() {
         var urlregsport = "setdata.php?requesttype=regsport&sportname=" + $('#sportname').val();
         console.log(urlregsport);
-        $.getJSON(urlregsport,function(data){
-           if(data === "OK"){
-               $("#messageregsport").text("Grenen har blitt opprettet");
-           }else{
-               $("#messageregsport").text(data);
-           }
-
-
-
-    });
+        $.getJSON(urlregsport, function (data) {
+            if (data === "OK") {
+                $("#messageregsport").text("Grenen har blitt opprettet");
+            } else {
+                $("#messageregsport").text(data);
+            }
+        });
     }
 
-    function regathlete(){
+    function regathlete() {
         var urlregsport = "setdata.php?requesttype=regathlete&athletename=" + $('#athletename').val();
         console.log(urlregsport);
-        $.getJSON(urlregsport,function(data){
-            if(data === "OK"){
+        $.getJSON(urlregsport, function (data) {
+            if (data === "OK") {
                 $("#messageregathlete").text("Utdøveren har nå blitt lagt til");
-            }else{
+            } else {
                 $("#messageregathlete").text(data);
             }
         });
