@@ -114,27 +114,36 @@ include_once('navbar.php');
     </table>
 </footer>
 <script src="dist/js/bootstrap.js"></script>
-<script type="text/javascript"><!-- writes the table -->
+<script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
     var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
-    var topField="";
-    var bottomField="";
+    var headerName="";
+    var buttonInTable="";
     $.getJSON(urlLoggedOn, function (data) {
-        if (data == true) {
-            topField="<th>Påmelding:</th>";
-            bottomField="<th><button type=\"button\" id=\"joinButton\" onclick=\"regTicket()\" class=\"btn btn-success\">Meld deg på!</button></th>";
+        if (data === true) {
+            headerName="<th>Påmelding:</th>";
+            buttonInTable="<th><button type=\"button\" class=\"joinButton\" onclick=\"regTicket(1)\" class=\"btn btn-success\">Meld deg på!</button></th>";
         }
     });
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
+        var value = 0;
         for (var row in data) {
-            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + bottomField + "</tr>";
+            if(buttonInTable!==""){
+                //TODO give buttonInTable new value with sport id
+                value ++;
+                buttonInTable="<th><button type=\"button\" class=\"joinButton\" value=\"" + value +"\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg på!</button></th>";
+            }
+            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
         }
-        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
+        $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
-    function regTicket() {
-        var urlregsport = "setdata.php?requesttype=regsport&sportid=" + $('#sportid').val() + "&userid=" + $('#userid').val();
-        $.getJSON(urlregsport, function (data) {
+    function regTicket(sportVal) {
+        console.log("button pressed");
+        var sportid=sportVal;
+        var userid = 1;
+        var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
+        $.getJSON(urlregticket, function (data) {
             if (data === "OK") {
                 $("#outputMelding").text("Du er nå med!");
             } else {

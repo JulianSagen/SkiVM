@@ -185,9 +185,11 @@ article {
 }
 #sportsDiv th{
     width: 50%;
+    text-align: center;
 }
 #sportsDiv td{
     width: 50%;
+    text-align: center;
 }
 
 #profiltabell {

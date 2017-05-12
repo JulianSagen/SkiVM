@@ -72,7 +72,6 @@ include_once('navbar.php');
 
                     <div id="TextTBox">Atlet:</div>
                     <input type="text" name="athletename" id="athletename" placeholder="Skriv atlet her.."><br><br>
-
                     <input type="submit" value="Registrer" onclick="regathlete()">
                     <div id="messageregathlete"></div>
                 </div>
@@ -135,6 +134,7 @@ include_once('navbar.php');
     function regathlete() {
         var urlregsport = "setdata.php?requesttype=regathlete&athletename=" + $('#athletename').val();
         console.log(urlregsport);
+
         $.getJSON(urlregsport, function (data) {
             if (data === "OK") {
                 $("#messageregathlete").text("Utdøveren har nå blitt lagt til");
