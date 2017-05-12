@@ -45,7 +45,7 @@ if(true){ ?>
                             }
 
                             ?>
-                            <li><a href="index.php">Profil</a></li>
+                            <li><a href="Profile.php">Profil</a></li>
                             <li><a href="logout.php">Logg Ut</a></li>
                         </ul>
                     </li
