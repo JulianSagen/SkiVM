@@ -10,7 +10,7 @@ function getuser(){
 
 }
 
-
+include "inputvalidation.php";
 
 $typeforespørsel = $_GET['requesttype'];
 
@@ -27,14 +27,17 @@ switch($typeforespørsel){
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
     case "getathletes":
-        $sql = "SELECT athleteid, athletename from athletes";
+        $sql = "SELECT athleteid, athletename FROM athletes";
         break;
     case "getsports":
-        $sql = "SELECT sportid, sportname from sports";
+        $sql = "SELECT sportid, sportname FROM sports";
         break;
-    case "getusersattending":
-        $sql = "SELECT sportid, sportname from sports";
-
+    case "getuserattending":
+        $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
+        break;
+    case "getattendingusers":
+        $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
+        break;
     default:
         $db->close();
         echo json_encode(null);
