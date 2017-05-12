@@ -9,6 +9,11 @@
         if(checklogin($username, $password) == "isAdmin") {
             $_SESSION['user_role'] = "admin";
         }
+        $isAdmin=true;
+        if($isAdmin) {
+            $_SESSION['user_role'] = "admin";
+        }
+        $_SESSION['login_user']=$username;
     }else{
         echo "Your password is useless";
     }

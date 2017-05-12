@@ -40,12 +40,13 @@ if(true){ ?>
                         <ul class="dropdown-menu">
                             <?php
                             /* TODO make this only show if user is an admin*/
+                            /* if ($_SESSION['user_type']=="Admin"){ */
                             if (isset($_SESSION['login_user'])) {
                                 echo "<li><a href=\"admin.php\">Admin</a></li>";
                             }
 
                             ?>
-                            <li><a href="index.php">Profil</a></li>
+                            <li><a href="Profile.php">Profil</a></li>
                             <li><a href="logout.php">Logg Ut</a></li>
                         </ul>
                     </li
