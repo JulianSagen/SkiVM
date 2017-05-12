@@ -27,6 +27,40 @@ function getathletename(){
         die();
     }
 }
+
+function getsportid(){
+    $sportid = $_GET['sportid'];
+    if(validateid($sportid)){
+        return $sportid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+function getuserid(){
+    $userid = $_GET['userid'];
+    if(validateid($userid)){
+        return $userid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+
+function getathleteid(){
+    $athleteid = $_GET['athleteid'];
+    if(validateid($athleteid)){
+        return $athleteid;
+    }
+    else{
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
+}
+
+
 $db = new mysqli("student.cs.hioa.no", "s315584", "", "s315584");
 if($db->connect_error)
 {
@@ -44,6 +78,12 @@ switch($typeforespørsel){
         $athletename = $_GET['athletename'];
         $sql="INSERT INTO athletes(athletename) VALUES ('" . mysqli_real_escape_string($db, getathletename()) . "')";
         break;
+    case "regisdoingsport":
+        $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ('" . getsportid() . "','" . getathleteid() . "')";
+        break;
+    case "regticket":
+        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "','" . getuserid() . "')";
+        break;
     default:
         echo json_encode("Feil på spørring2");
         die();
@@ -60,7 +100,7 @@ $resultat = $db->query($sql);
 if(!$resultat)
 {
     $db->close();
-    echo json_encode("Feil på spørring");
+    echo json_encode("Kunne ikke lagre data");
     die();
 }
 $utdata = json_encode("OK");

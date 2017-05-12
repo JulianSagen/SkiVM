@@ -13,3 +13,10 @@ function validateusername($username){
     }
     return false;
 }
+
+function validateid($id){
+    if(preg_match("/^[0-9]{1,9}$/",$id)){
+        return true;
+    }
+    return false;
+}
