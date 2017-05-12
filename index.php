@@ -90,6 +90,8 @@ include_once('navbar.php');
     <div id="sportsDiv" class="tabeller">
 
     </div>
+    <div id="outputMelding">
+    </div>
 </article>
 <footer class="panel-footer">
     <table>
@@ -114,13 +116,13 @@ include_once('navbar.php');
 <script src="dist/js/bootstrap.js"></script>
 <script type="text/javascript"><!-- writes the table -->
     var urlsport = "getdata.php?requesttype=getsports";
-    var loggedOn = "getdata.php?requesttype=getLoggedOn";
+    var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
     var topField="";
     var bottomField="";
-    $.getJSON(loggedOn, function (data) {
+    $.getJSON(urlLoggedOn, function (data) {
         if (data == true) {
             topField="<th>Påmelding:</th>";
-            bottomField="<th><button type=\"button\" id=\"joinButton\" class=\"btn btn-success\">Meld deg på!</button></th>";
+            bottomField="<th><button type=\"button\" id=\"joinButton\" onclick=\"regTicket()\" class=\"btn btn-success\">Meld deg på!</button></th>";
         }
     });
     $.getJSON(urlsport, function (data) {
@@ -130,6 +132,16 @@ include_once('navbar.php');
         }
         $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ topField +"</tr></thead>" + sportinfo + "</table>");
     });
+    function regTicket() {
+        var urlregsport = "setdata.php?requesttype=regsport&sportid=" + $('#sportid').val() + "&userid=" + $('#userid').val();
+        $.getJSON(urlregsport, function (data) {
+            if (data === "OK") {
+                $("#outputMelding").text("Du er nå med!");
+            } else {
+                $("#outputMelding").text("Error: noe rart skjedde og du ble ikke med :(");
+            }
+        });
+    }
 </script>
 
 </body>
