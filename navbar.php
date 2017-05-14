@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_regenerate_id();
 
 if(true){ ?>
     <nav id="navbar" class="navbar navbar-inverse">
