@@ -82,7 +82,7 @@ function getsportid(){
     }
 }
 function getuserid(){
-    $userid = $_SESSION['userid'];
+    $userid = 13;
     if(validateid($userid)){
         return $userid;
     }

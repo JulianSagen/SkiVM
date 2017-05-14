@@ -28,7 +28,7 @@ switch($typeforespørsel){
         $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ('" . getsportid() . "','" . getathleteid() . "')";
         break;
     case "regticket":
-        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "','" . getuserid() . "')";
+        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "','" . getuserid() . "')";//TODO get user id
         break;
     default:
         echo json_encode("Feil på spørring2");
