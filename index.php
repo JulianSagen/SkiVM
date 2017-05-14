@@ -130,7 +130,6 @@ include_once('navbar.php');
         var value = 0;
         for (var row in data) {
             if (buttonInTable !== "") {
-                //TODO give buttonInTable new value with sport id
                 value = data[row].sportid;
                 buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg på!</button></th>";
             }
@@ -151,6 +150,21 @@ include_once('navbar.php');
             }
         });
     }
+    $(document).ready(function() {
+        $("#sportsDiv").on( 'click', 'tr', function() {
+            var thistabel = this;
+            var urluserattending = "getdata.php?requesttype=getathletesattending&sportname=" + $( this ).children('td').text();
+            console.log( $( this ).children('td').text() );
+            $.getJSON(urluserattending, function (data) {
+                var sportinfo = '';
+                for (var row in data) {
+                    sportinfo += "<tr><td >" + data[row].sportname + "</td></tr>";
+                }
+                $(thistabel).after(sportinfo);
+            });
+
+        });
+    });
 </script>
 
 </body>

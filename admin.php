@@ -155,7 +155,6 @@ include_once('navbar.php');
             $.getJSON(urluserattending, function (data) {
                 var sportinfo = '';
                 for (row in data) {
-                    var i = Object.keys(row).indexOf(data);
                     sportinfo += "<tr><td >" + data[row].sportname + "</td></tr>";
                 }
                 $(thistabel).after(sportinfo);

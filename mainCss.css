@@ -32,9 +32,9 @@ article {
     position: relative;
     text-align: center;
     margin: auto;
+    padding-bottom: 30px;
     width: 70%;
-    height: 600px;
-    margin-top: 0;
+    height: auto;
     -webkit-box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
     -moz-box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
     box-shadow: 1px 3px 12px 1px rgba(61,61,61,1);
