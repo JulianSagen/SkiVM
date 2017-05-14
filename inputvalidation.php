@@ -81,15 +81,9 @@ function getsportid(){
         die();
     }
 }
-function getuserid(){
-    $userid = 13;
-    if(validateid($userid)){
-        return $userid;
-    }
-    else{
-        echo json_encode("Kunne ikke validere data");
-        die();
-    }
+function getusername(){
+    $username = $_SESSION['login_user'];
+    return $username;
 }
 
 function getathleteid(){

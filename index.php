@@ -119,7 +119,7 @@ include_once('navbar.php');
     var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
     var urluserid = "getdata.php?requesttype=getuserid";
     var headerName="";
-    var userid = "13";
+    var userid = 0;
     var buttonInTable="";
     $.getJSON(urlLoggedOn, function (data) {
         if (data === true) {
