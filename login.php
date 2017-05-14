@@ -8,8 +8,8 @@
 
     if(!empty(checklogin($username, $password))){
         echo "Gratulerer du har nå blitt innlogget";
-        if(checklogin($username, $password) == "isAdmin") {
-            $_SESSION['isAdmin'] = true;
+        if(checklogin($username, $password) === "isAdmin") {
+            $_SESSION['isAdmin'] = "admin";
         }
         $_SESSION['login_user']=$username;
     }else{
