@@ -12,7 +12,7 @@ function createUser($username, $password, $fullname, $email, $phonenr, $address)
         die($db->connect_error);
     }
     $encryptedpassword = encryptPasswordHash($password);
-        $sql = "Insert Into users (username, password, fullnavn, email, phonenr, address) Values ('$username','$encryptedpassword','$fullname','$email','$phonenr','$address')";
+        $sql = "Insert Into users (username, password, fullnavn, email, phonenr, address) Values ('$username','$encryptedpassword','$fullname','" . mysqli_real_escape_string($db, $email) . "','$phonenr','" . mysqli_real_escape_string($db, $address) ."')";
 
     $resultat = $db->query($sql);
     if(!$resultat)   {

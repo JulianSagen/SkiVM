@@ -18,10 +18,10 @@ switch($typeforespørsel){
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
     case "getuserinfo":
-        $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE username = '" . $_SESSION['login_user'] . "'";
+        $sql = "SELECT username, fullnavn, email, phonenr, address FROM users WHERE username = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'";
         break;
     case "getuserid":
-            $sql = "SELECT userid FROM users WHERE username = '" . $_SESSION['login_user'] . "'";
+        $sql = "SELECT userid FROM users WHERE username = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'";
         break;
     case "getathletes":
         $sql = "SELECT athleteid, athletename FROM athletes";
@@ -40,7 +40,7 @@ switch($typeforespørsel){
         $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;
     case "getathletesattending":
-        $sql = "SELECT atlethename FROM athlete WHERE atletheid = (SELECT atletheid from athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" . getsportname() . "'))";
+        $sql = "SELECT atlethename FROM athlete WHERE atletheid = (SELECT atletheid FROM athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'))";
         break;
     case "getattendingusers":
         $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
