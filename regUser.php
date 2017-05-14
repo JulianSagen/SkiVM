@@ -19,7 +19,7 @@ function createUser($username, $password, $fullname, $email, $phonenr, $address)
         return 0;
     }
     else  {
-        return $db->insert_id;
+        return "En forferdlig feil skjedde når datane skulle inn i databasen";
     }
     $db->close();
 

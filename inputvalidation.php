@@ -35,7 +35,7 @@ function validatephonenr($phonenr){
 }
 
 function validateemail($email){
-    if(preg_match("/^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/",$email)){
+    if(preg_match("/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/",$email)){
         return true;
     }
     return false;
