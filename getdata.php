@@ -40,7 +40,7 @@ switch($typeforespørsel){
         $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;
     case "getathletesattending":
-        $sql = "SELECT atlethename FROM athlete WHERE atletheid = (SELECT atletheid FROM athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'))";
+        $sql = "SELECT athletename FROM athletes WHERE athleteid = (SELECT athleteid FROM athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" .getsportname(). "'))";
         break;
     case "getattendingusers":
         $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
