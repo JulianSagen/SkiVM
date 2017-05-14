@@ -143,18 +143,19 @@ article {
 }
 
 
-.carousel-inner img {
+.carousel-inner > div > img {
     margin: 0;
     padding: 0;
-    width: auto;
-    height: 100vh;
+    height: 90vh;
 }
 
 #tabellBrukere {
     padding: 2%;
     border-color: #122b40;
 }
-
+.thick{
+    font-weight: bold;
+}
 .listTabell {
 
 }

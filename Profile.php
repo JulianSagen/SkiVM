@@ -122,9 +122,8 @@ include_once('navbar.php');
                             }
                         });
                         function removeTicket(sportVal) {
-                            console.log("button pressed");
                             var sportid = sportVal;
-                            var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
+                            var urlregticket = "setdata.php?requesttype=removeticket&sportid=" + sportid + "&userid=" + userid;
                             $.getJSON(urlregticket, function (data) {
                                 if (data === "OK") {
                                     $("#outputMelding").text("Du er nå meldt av!");

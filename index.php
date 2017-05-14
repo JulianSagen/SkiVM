@@ -52,15 +52,15 @@ include_once('navbar.php');
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="img/ski.jpg" alt="ski">
+                <img src="img/ski.jpg" height="1080" alt="ski">
             </div>
 
             <div class="item">
-                <img src="img/jump.jpg" alt="jump">
+                <img src="img/jump.jpg" height="1080" alt="jump">
             </div>
 
             <div class="item">
-                <img src="img/Snow.jpg" alt="Snow">
+                <img src="img/Snow.jpg" height="1080" alt="Snow">
                 
             </div>
         </div>
@@ -122,7 +122,7 @@ include_once('navbar.php');
                 value = data[row].sportid;
                 buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg på!</button></th>";
             }
-            sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
+            sportinfo += "<tr><td class=\"thick\">" + data[row].sportname + "</td class>" + buttonInTable + "</tr>";
         }
         $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
@@ -132,7 +132,7 @@ include_once('navbar.php');
         }
     });
     function regTicket(sportVal) {
-        console.log("button pressed");
+        console.log(userid);
         var sportid=sportVal;
         var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
         $.getJSON(urlregticket, function (data) {
@@ -151,7 +151,7 @@ include_once('navbar.php');
             $.getJSON(urlathletesattending, function (data) {
                 var sportinfo = "";
                 for (var row in data) {
-                    sportinfo += "<tr><td >" + data[row].athletename + "</td></tr>";
+                    sportinfo += "<tr><td>" + data[row].athletename + "</td></tr>";
                     console.log(data[row].athletename)
                 }
                 $(thistabel).after(sportinfo);

@@ -28,15 +28,13 @@ switch($typeforespørsel){
         $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ((SELECT sportid from sports where sportname ='" . getsportname() . "'), (SELECT athleteid from athletes where athletename ='" . getathletename() ."'))";
         break;
     case "regticket":
-        $subquery ="SELECT userid FROM users WHERE username = " . getusername();
-        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() ."','". $subquery . "')";
+        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "', '" . getuserid() . "')";
         break;
-    case"":
-        $subquery ="SELECT userid FROM users WHERE username = " . getusername();
-        $sql="DELETE FROM tickets WHERE sportid = '". getsportid(). "' AND userid = '". $subquery . "'";
+    case"removeticket":
+        $sql="DELETE FROM tickets WHERE sportid = '". getsportid(). "' AND userid = '". getuserid() . "'";
         break;
     default:
-        echo json_encode("Feil på spørring2");
+        echo json_encode("Feil på spørring");
         die();
         break;
 }

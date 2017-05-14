@@ -21,7 +21,7 @@ switch($typeforespørsel){
         $sql = "SELECT username, fullnavn, email, phonenr, address FROM users WHERE username = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'";
         break;
     case "getuserid":
-        $sql = "SELECT userid FROM users WHERE username = '" . mysqli_real_escape_string($db, $_SESSION['login_user']) . "'";
+        $sql = "SELECT userid FROM users WHERE username = '" . $_SESSION['login_user']."'";
         break;
     case "getathletes":
         $sql = "SELECT athleteid, athletename FROM athletes";
@@ -30,7 +30,7 @@ switch($typeforespørsel){
         $sql = "SELECT sportid, sportname FROM sports";
         break;
     case"userAttending":
-        $sql = "SELECT sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = (SELECT userid from users where username ='". mysqli_real_escape_string($db, $_SESSION['login_user']). "'))";
+        $sql = "SELECT sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '".getuserid() . "')";
         break;
     case "getLoggedOn":
         if(isset($_SESSION['login_user'])){
