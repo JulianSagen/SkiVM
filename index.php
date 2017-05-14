@@ -117,7 +117,9 @@ include_once('navbar.php');
 <script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
     var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
+    var urlUserId = "getdata.php?requesttype=getuserid";
     var headerName="";
+    var userid = "";
     var buttonInTable="";
     $.getJSON(urlLoggedOn, function (data) {
         if (data === true) {
@@ -125,6 +127,7 @@ include_once('navbar.php');
             buttonInTable="<th><button type=\"button\" class=\"joinButton\" onclick=\"regTicket(1)\" class=\"btn btn-success\">Meld deg på!</button></th>";
         }
     });
+
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
         var value = 0;
@@ -137,10 +140,12 @@ include_once('navbar.php');
         }
         $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
+    $.getJSON(urluserid, function (data) {
+        userid = data[0];
+    }
     function regTicket(sportVal) {
         console.log("button pressed");
         var sportid=sportVal;
-        var userid = 1; //TODO
         var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
         $.getJSON(urlregticket, function (data) {
             if (data === "OK") {
