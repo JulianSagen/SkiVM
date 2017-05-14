@@ -41,7 +41,7 @@ function checklogin($username, $password)
 
     if(password_verify($password, $passfromDB))
     {
-        if ($row['isadmin']===1){
+        if ($row['isadmin']==='1'){
             return "isAdmin";
         }
         return "isUser";
