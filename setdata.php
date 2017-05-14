@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id();
-if (!isset($_SESSION['login_user']))      // if there is no valid session
+if (!isset($_SESSION['login_user']))
 {
     header("Location: index.php");
 }
@@ -28,7 +28,7 @@ switch($typeforespørsel){
         $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ('" . getsportid() . "','" . getathleteid() . "')";
         break;
     case "regticket":
-        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "','" . getuserid() . "')";
+        $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() . "','" . getuserid() . "')";//TODO get user id
         break;
     default:
         echo json_encode("Feil på spørring2");

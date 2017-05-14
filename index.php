@@ -117,9 +117,9 @@ include_once('navbar.php');
 <script type="text/javascript">
     var urlsport = "getdata.php?requesttype=getsports";
     var urlLoggedOn = "getdata.php?requesttype=getLoggedOn";
-    var urlUserId = "getdata.php?requesttype=getuserid";
+    var urluserid = "getdata.php?requesttype=getuserid";
     var headerName="";
-    var userid = "";
+    var userid = "13";
     var buttonInTable="";
     $.getJSON(urlLoggedOn, function (data) {
         if (data === true) {
@@ -141,8 +141,12 @@ include_once('navbar.php');
         $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
     $.getJSON(urluserid, function (data) {
-        userid = data[0];
-    }
+        for(var row in data){
+            //userid = data[row].userid;
+
+        }
+        userid = 13;
+    });
     function regTicket(sportVal) {
         console.log("button pressed");
         var sportid=sportVal;
@@ -159,7 +163,6 @@ include_once('navbar.php');
         $("#sportsDiv").on( 'click', 'tr', function() {
             var thistabel = this;
             var urluserattending = "getdata.php?requesttype=getathletesattending&sportname=" + $( this ).children('td').text();
-            console.log( $( this ).children('td').text() );
             $.getJSON(urluserattending, function (data) {
                 var sportinfo = '';
                 for (var row in data) {
@@ -167,7 +170,6 @@ include_once('navbar.php');
                 }
                 $(thistabel).after(sportinfo);
             });
-
         });
     });
 </script>
