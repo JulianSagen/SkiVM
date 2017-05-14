@@ -59,27 +59,27 @@ include_once('navbar.php');
             </td>
             <td>
                 <div id="profilTab1">
-                <table class="table">
+                    <table class="table">
 
-                <tr>
-                    <th> Brukernavn:</th>
-                </tr>
-                <tr>
-                    <th> Navn:</th>
-                </tr>
-                <tr>
-                    <th> Email:</th>
-                </tr>
-                <tr>
-                    <th> Tlf. nr.:</th>
-                </tr>
-                <tr>
-                    <th> Adresse:</th>
-                </tr>
-                </table>
+                        <tr>
+                            <th> Brukernavn:</th>
+                        </tr>
+                        <tr>
+                            <th> Navn:</th>
+                        </tr>
+                        <tr>
+                            <th> Email:</th>
+                        </tr>
+                        <tr>
+                            <th> Tlf. nr.:</th>
+                        </tr>
+                        <tr>
+                            <th> Adresse:</th>
+                        </tr>
+                    </table>
             </td>
-                <td>
-            <div id="profilTab">
+            <td>
+                <div id="profilTab">
 
 
                     <script type="text/javascript">
@@ -89,24 +89,59 @@ include_once('navbar.php');
                             for (row in data) {
                                 userinfo += "<tr><td>" + data[row].username + "</td></tr><tr><td>" + data[row].fullnavn + "</td></tr><tr><td>" + data[row].email + "</td></tr><tr><td>" + data[row].phonenr + "</td></tr><tr><td>" + data[row].address + "</td></tr></tr>";
                             }
-                            $("#profilTab").append("<table class=\"table\">" +userinfo);
+                            $("#profilTab").append("<table class=\"table\">" + userinfo);
                         });
                     </script>
-            </div>
-        </td>
-        </tr>
-        <tr>
-            <td>
-                <div id="profilBar"></div>
+                </div>
             </td>
         </tr>
         <tr>
             <td>
-                <div id="tabellOvelser"></div>
+
             </td>
+            <td>
+                <div id="tabellOvelserProfil">
+                    <script type="text/javascript">
+                        var urlsport = "getdata.php?requesttype=getsports";
+                        var urluserid = "getdata.php?requesttype=getuserid";
+                        var headerName="";
+                        var userid = "13";
+                        $.getJSON(urlsport, function (data) {
+                            var sportinfo = '';
+                            var value = 0;
+                            for (var row in data) {
+                                    value = data[row].sportid;
+                                    buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg av</button></th>";
+                                    sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
+                            }
+                            $("#tabellOvelserProfil").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Påmeldte Konkurranser: </th>" + headerName + "</tr></thead>" + sportinfo + "</table>");
+                        });
+                        $.getJSON(urluserid, function (data) {
+                            for(var row in data){
+                                userid = data[row].userid;
+                            }
+                        });
+                    </script>
+                </div>
+            </td>
+
         </tr>
     </table>
+    <script type="text/javascript">
 
+        function regTicket(sportVal) {
+            console.log("button pressed");
+            var sportid = sportVal;
+            var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
+            $.getJSON(urlregticket, function (data) {
+                if (data === "OK") {
+                    $("#outputMelding").text("Du er nå med!");
+                } else {
+                    $("#outputMelding").text("Error: noe rart skjedde og du ble ikke med :(");
+                }
+            });
+        }
+    </script>
 
 </article>
 <script src="dist/js/bootstrap.js"></script>

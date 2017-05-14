@@ -165,6 +165,12 @@ article {
 
 }
 
+#tabellOvelserProfil {
+    width: 50%;
+    text-align: center;
+
+}
+
 #tabellAtleter {
     padding: 2%;
     border-color: #122b40;
@@ -211,7 +217,7 @@ article {
 #profilinfo {
     margin-left: 5%;
     width: 33%;
-    height: 400px;
+    height: auto;
 }
 
 #profilTab {
