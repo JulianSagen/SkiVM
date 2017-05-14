@@ -21,7 +21,7 @@ function validatepassword($password){
 }
 
 function validateid($id){
-    if(preg_match("/^[0-9]{1,9}$/",$id)){
+    if(preg_match("/^[0-9]{1,12}$/",$id)){
         return true;
     }
     return false;
@@ -84,6 +84,17 @@ function getsportid(){
 function getusername(){
     $username = $_SESSION['login_user'];
     return $username;
+}
+
+function getuserid(){
+    $userid = $_GET['userid'];
+    if(validateid($userid)){
+        return $userid;
+    }
+    else {
+        echo json_encode("Kunne ikke validere data");
+        die();
+    }
 }
 
 function getathleteid(){
