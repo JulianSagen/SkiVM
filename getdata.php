@@ -42,6 +42,9 @@ switch($typeforespørsel){
     case "getuserattending":
         $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;
+    case "getathletesattending":
+        $sql = "SELECT atlethename FROM athlete WHERE atletheid = (SELECT atletheid from athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" . getsportname() . "'))";
+        break;
     case "getattendingusers":
         $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
         break;
