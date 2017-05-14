@@ -102,7 +102,7 @@ include_once('navbar.php');
 
                 </div>
                 <div id="regAtletOvelse">
-                    <input type="submit" value="Registrer" onclick="regAthleteToOvelse">
+                    <input type="submit" value="Registrer" onclick="regAthleteToOvelse()">
                 </div>
             </td>
         </tr>
@@ -124,17 +124,17 @@ include_once('navbar.php');
     $.getJSON(urlathlete, function (data) {
         var athleteinfo = '';
         for (row in data) {
-            athleteinfo += "<option id=\"athleteReg\">" + data[row].athletename + "</option>";
+            athleteinfo += "<option >" + data[row].athletename + "</option>";
         }
-        $("#dropdownAtlet").append("<select class=\"selectpicker show-tick dropdown-header\">" + athleteinfo + "</select>");
+        $("#dropdownAtlet").append("<select id=\"athleteReg\" class=\"selectpicker show-tick dropdown-header\">" + athleteinfo + "</select>");
     });
 
     $.getJSON(urlsport, function (data) {
         var sportinfo = '';
         for (row in data) {
-            sportinfo += "<option id=\"sportReg\">" + data[row].sportname + "</option>";
+            sportinfo += "<option >" + data[row].sportname + "</option>";
         }
-        $("#dropdownOvelse").append("<select class=\"selectpicker show-tick dropdown-header\">" + sportinfo + "</select>");
+        $("#dropdownOvelse").append("<select id=\"sportReg\" class=\"selectpicker show-tick dropdown-header\">" + sportinfo + "</select>");
     });
 
     $.getJSON(urlathlete, function (data) {
@@ -182,7 +182,7 @@ include_once('navbar.php');
     }
 
     function regAthleteToOvelse() {
-        var urlregsport = "setdata.php?requesttype=regisdoingsport&sportid="+$('#sportReg').val()+"&athleteid=" + $('#athleteReg').val();
+        var urlregsport = "setdata.php?requesttype=regisdoingsport&sportname="+$('#sportReg option:selected').text()+"&athletename=" + $('#athleteReg option:selected').text();
         console.log(urlregsport);
 
         $.getJSON(urlregsport, function (data) {
