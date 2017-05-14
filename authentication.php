@@ -45,10 +45,5 @@ function checklogin($username, $password)
             return "isAdmin";
         }
         return "isUser";
-    }else{
-
     }
-
-
-
 }
