@@ -18,7 +18,7 @@ switch($typeforespørsel){
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
     case "getuserinfo":
-        $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE userid = '" . getuserid() . "'";
+        $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE username = '" . $_SESSION['login_user'] . "'";
         break;
     case "getuserid":
         if(isset($_SESSION['login_user'])) {
