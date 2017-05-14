@@ -94,24 +94,9 @@ include_once('navbar.php');
     </div>
 </article>
 <footer class="panel-footer">
-    <table>
-        <tr>
-            <td>
-               Vet ikke
-            </td>
-            <td>
-                hva
-            </td>
-        </tr>
-        <tr>
-            <td>
-                vi skal
-            </td>
-            <td>
-                ha her rip
-            </td>
-        </tr>
-    </table>
+    <p>
+        copyright © all rights reserved
+    </p>
 </footer>
 <script src="dist/js/bootstrap.js"></script>
 <script type="text/javascript">

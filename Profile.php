@@ -110,7 +110,7 @@ include_once('navbar.php');
                             var headerName = "";
                             for (var row in data) {
                                 var value = data[row].sportid;
-                                console.log(value)
+                                console.log(value);
                                 var buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"removeTicket(" + value + ")\" class=\"btn btn-success\">Meld deg av</button></th>";
                                 sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
                             }
@@ -122,7 +122,7 @@ include_once('navbar.php');
                             }
                         });
                         function removeTicket(sportVal) {
-                            console.log("button pressed")
+                            console.log("button pressed");
                             var sportid = sportVal;
                             var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
                             $.getJSON(urlregticket, function (data) {
