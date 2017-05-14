@@ -31,6 +31,10 @@ switch($typeforespørsel){
         $subquery ="SELECT userid FROM users WHERE username = " . getusername();
         $sql="INSERT INTO tickets(sportid, userid) VALUES ('" . getsportid() ."','". $subquery . "')";
         break;
+    case"":
+        $subquery ="SELECT userid FROM users WHERE username = " . getusername();
+        $sql="DELETE FROM tickets WHERE sportid = '". getsportid(). "' AND userid = '". $subquery . "'";
+        break;
     default:
         echo json_encode("Feil på spørring2");
         die();

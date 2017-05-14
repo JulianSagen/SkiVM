@@ -29,6 +29,9 @@ switch($typeforespørsel){
     case "getsports":
         $sql = "SELECT sportid, sportname FROM sports";
         break;
+    case"userAttending":
+        $sql = "SELECT sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = (SELECT userid from users where username ='". mysqli_real_escape_string($db, $_SESSION['login_user']). "'))";
+        break;
     case "getLoggedOn":
         if(isset($_SESSION['login_user'])){
             echo json_encode(true);

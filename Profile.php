@@ -10,7 +10,7 @@ if (!isset($_SESSION['login_user'])) {      // if there is no valid session
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Meld Deg På!</title>
+    <title>Din profil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="dist/css/bootstrap.css" rel="stylesheet">
     <link href="dist/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -102,47 +102,47 @@ include_once('navbar.php');
             <td>
                 <div id="tabellOvelserProfil">
                     <script type="text/javascript">
-                        var urlsport = "getdata.php?requesttype=getsports";
+                        var urlsport = "getdata.php?requesttype=userAttending";
                         var urluserid = "getdata.php?requesttype=getuserid";
-                        var headerName="";
-                        var userid = "13";
+                        var userid = 13;
                         $.getJSON(urlsport, function (data) {
                             var sportinfo = '';
-                            var value = 0;
+                            var headerName = "";
                             for (var row in data) {
-                                    value = data[row].sportid;
-                                    buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"regTicket(" + value + ")\" class=\"btn btn-success\">Meld deg av</button></th>";
-                                    sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
+                                var value = data[row].sportid;
+                                console.log(value)
+                                var buttonInTable = "<th><button type=\"button\" class=\"joinButton\" value=\"" + value + "\" onclick=\"removeTicket(" + value + ")\" class=\"btn btn-success\">Meld deg av</button></th>";
+                                sportinfo += "<tr><td >" + data[row].sportname + "</td>" + buttonInTable + "</tr>";
                             }
                             $("#tabellOvelserProfil").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Påmeldte Konkurranser: </th>" + headerName + "</tr></thead>" + sportinfo + "</table>");
                         });
                         $.getJSON(urluserid, function (data) {
-                            for(var row in data){
+                            for (var row in data) {
                                 userid = data[row].userid;
                             }
                         });
+                        function removeTicket(sportVal) {
+                            console.log("button pressed")
+                            var sportid = sportVal;
+                            var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
+                            $.getJSON(urlregticket, function (data) {
+                                if (data === "OK") {
+                                    $("#outputMelding").text("Du er nå meldt av!");
+                                } else {
+                                    $("#outputMelding").text("Error: noe rart skjedde");
+                                }
+                            });
+                        }
                     </script>
                 </div>
-            </td>
 
+            </td>
+            <td>
+                <div id="outputMelding">
+                </div>
+            </td>>
         </tr>
     </table>
-    <script type="text/javascript">
-
-        function regTicket(sportVal) {
-            console.log("button pressed");
-            var sportid = sportVal;
-            var urlregticket = "setdata.php?requesttype=regticket&sportid=" + sportid + "&userid=" + userid;
-            $.getJSON(urlregticket, function (data) {
-                if (data === "OK") {
-                    $("#outputMelding").text("Du er nå med!");
-                } else {
-                    $("#outputMelding").text("Error: noe rart skjedde og du ble ikke med :(");
-                }
-            });
-        }
-    </script>
-
 </article>
 <script src="dist/js/bootstrap.js"></script>
 
