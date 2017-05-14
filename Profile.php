@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id();
-if (!isset($_SESSION['login_user'])){      // if there is no valid session
+if (!isset($_SESSION['login_user'])) {      // if there is no valid session
     header("Location: index.php");
 }
 ?>
@@ -43,34 +43,58 @@ include_once('navbar.php');
         </div>
     </div>
     <h1 id="tittleProfile">Din Profil</h1>
-    <table id="profilTabell">
+    <table class="table" id="profilTabell">
         <tr>
             <td>
-                <div id="profilinfo"><img src="img/avatar.png">
-                <div id="user">
-                    <?php
-                    /* this only show if user is signed in*/
-                    if (isset($_SESSION['login_user'])) {
-                        echo "<p class='text-success'>Velkommen til din profil: "."<br>". $_SESSION['login_user'] . "</p>";
-                    }
-                    ?>
-                </div> </div>
+                <div id="profilinfo"><img src="img/avatar.png" width="220px" height="200px">
+                    <div id="user">
+                        <?php
+                        /* this only show if user is signed in*/
+                        if (isset($_SESSION['login_user'])) {
+                            echo "<p class='text-success'>Velkommen til din profil: " . "<br>" . $_SESSION['login_user'] . "</p>";
+                        }
+                        ?>
+                    </div>
+                </div>
             </td>
             <td>
-                <div id="profilTab">
+                <div id="profilTab1">
+                <table class="table">
+
+                <tr>
+                    <th> Brukernavn:</th>
+                </tr>
+                <tr>
+                    <th> Navn:</th>
+                </tr>
+                <tr>
+                    <th> Email:</th>
+                </tr>
+                <tr>
+                    <th> Tlf. nr.:</th>
+                </tr>
+                <tr>
+                    <th> Adresse:</th>
+                </tr>
+                </table>
+            </td>
+                <td>
+            <div id="profilTab">
+
+
                     <script type="text/javascript">
-                    var urluser = "getdata.php?requesttype=getuserinfo";
-                    $.getJSON(urluser, function (data) {
-                        var userinfo = '';
-                        for (var row in data) {
-                            userinfo += "<tr><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
-                        }
-                        $("#profilTab").append("<table class=\"table\" id=\"table-props\">" +
-                            "<thead class=\"thead-inverse\"><tr><th> Brukernavn: </th><tr><th> Navn: </th></tr><tr><th> Email: </th></tr><tr><th> Tlf. nr.: </th></tr><th> Adresse: </th></tr></thead>" + userinfo + "</table>");
-                    });
+                        var urluser = "getdata.php?requesttype=getuserinfo";
+                        $.getJSON(urluser, function (data) {
+                            var userinfo = '';
+                            for (row in data) {
+                                userinfo += "<tr><td>" + data[row].username + "</td></tr><tr><td>" + data[row].fullnavn + "</td></tr><tr><td>" + data[row].email + "</td></tr><tr><td>" + data[row].phonenr + "</td></tr><tr><td>" + data[row].address + "</td></tr></tr>";
+                            }
+                            $("#profilTab").append("<table class=\"table\">" +userinfo);
+                        });
                     </script>
-                </div>
-            </td></tr>
+            </div>
+        </td>
+        </tr>
         <tr>
             <td>
                 <div id="profilBar"></div>

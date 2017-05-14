@@ -202,20 +202,29 @@ article {
     margin: auto;
 }
 
+#profilTabell  td {
+    width: 20%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #profilinfo {
     margin-left: 5%;
-    width: 52%;
+    width: 33%;
     height: 400px;
-    display: block;
-    background-color: #b9def0;
 }
 
 #profilTab {
-    padding-left: 2%;
     width: auto;
 }
 
 #profilBar {
     padding-left: 2%;
     background-color: #b9def0;
+}
+
+#user {
+    text-align: center;
+    margin-left: 40%;
+    width: 100%;
 }
