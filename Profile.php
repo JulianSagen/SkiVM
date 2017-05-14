@@ -1,6 +1,10 @@
 <?php
+session_start();
+session_regenerate_id();
+if (!isset($_SESSION['login_user'])){      // if there is no valid session
+    header("Location: index.php");
+}
 ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -39,8 +43,45 @@ include_once('navbar.php');
         </div>
     </div>
     <h1 id="tittleProfile">Din Profil</h1>
-    <table id="profilTabell"><tr><td><div id="profilinfo"></div></td><td><div id="profilTab"></div></td><td><div id="profilBar" </td></tr><tr><td><div id="tabellOvelser" </td></tr></table>
-
+    <table id="profilTabell">
+        <tr>
+            <td>
+                <div id="profilinfo"><img src="img/avatar.png">
+                <div id="user">
+                    <?php
+                    /* this only show if user is signed in*/
+                    if (isset($_SESSION['login_user'])) {
+                        echo "<p class='text-success'>Velkommen til din profil: "."<br>". $_SESSION['login_user'] . "</p>";
+                    }
+                    ?>
+                </div> </div>
+            </td>
+            <td>
+                <div id="profilTab">
+                    <script type="text/javascript">
+                    var urluser = "getdata.php?requesttype=getuserinfo";
+                    $.getJSON(urluser, function (data) {
+                        var userinfo = '';
+                        for (row in data) {
+                            userinfo += "<tr><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
+                        }
+                        $("#profilTab").append("<table class=\"table\" id=\"table-props\">" +
+                            "<thead class=\"thead-inverse\"><tr><th> Brukernavn: </th><tr><th> Navn: </th></tr><tr><th> Email: </th></tr><tr><th> Tlf. nr.: </th></tr><th> Adresse: </th></tr></thead>" + userinfo + "</table>");
+                    });
+                    </script>
+                </div>
+            </td></tr>
+        <tr>
+            <td>
+                <div id="profilBar"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="tabellOvelser"></div>
+            </td>
+        </tr>
+    </table>
 
 
 </article>

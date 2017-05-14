@@ -1,15 +1,6 @@
 <?php
 session_start();
 session_regenerate_id();
-//if (!isset($_SESSION['login_user'])){      // if there is no valid session
-//    header("Location: index.php");
-//}
-function getuser(){
-   $user = $_GET['requesttype'];
-   return $user;
-
-}
-
 include "inputvalidation.php";
 
 $typeforespørsel = $_GET['requesttype'];
@@ -26,6 +17,9 @@ switch($typeforespørsel){
     case "getusers":
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
+    case "getuserinfo":
+        $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE userid = '" . getuserid() . "'";
+        break;
     case "getathletes":
         $sql = "SELECT athleteid, athletename FROM athletes";
         break;
@@ -41,6 +35,9 @@ switch($typeforespørsel){
         break;
     case "getuserattending":
         $sql = "SELECT sportid, sportname FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";
+        break;
+    case "getathletesattending":
+        $sql = "SELECT atlethename FROM athlete WHERE atletheid = (SELECT atletheid from athleteduingsport WHERE sportid = (SELECT sportid FROM sports WHERE sportname = '" . getsportname() . "'))";
         break;
     case "getattendingusers":
         $sql = "SELECT userid, username FROM sports WHERE sportid = (SELECT sportid from tickets WHERE userid = '" . getuserid() . "')";

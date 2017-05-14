@@ -1,5 +1,7 @@
 <?php
     session_start();
+    session_regenerate_id();
+
     include 'authentication.php';
     $username = $_GET["username"];
     $password = $_GET["password"];
@@ -10,6 +12,7 @@
             $_SESSION['isAdmin'] = true;
         }
         $_SESSION['login_user']=$username;
+        $_SESSION['userid']=$username;
     }else{
         echo "Your password is useless";
     }
