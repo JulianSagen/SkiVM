@@ -151,14 +151,13 @@ include_once('navbar.php');
         });
     }
     $(document).ready(function() {
-        $("#sportsDiv").on( 'click', 'td', function() {
+        $("#sportsDiv").on( 'click', 'tr', function() {
             var thistabel = this;
             var urluserattending = "getdata.php?requesttype=getathletesattending&sportname=" + $( this ).children('td').text();
             console.log( $( this ).children('td').text() );
             $.getJSON(urluserattending, function (data) {
                 var sportinfo = '';
-                for (row in data) {
-                    var i = Object.keys(row).indexOf(data);
+                for (var row in data) {
                     sportinfo += "<tr><td >" + data[row].sportname + "</td></tr>";
                 }
                 $(thistabel).after(sportinfo);
