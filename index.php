@@ -142,10 +142,8 @@ include_once('navbar.php');
     });
     $.getJSON(urluserid, function (data) {
         for(var row in data){
-            //userid = data[row].userid;
-
+            userid = data[row].userid;
         }
-        userid = 13;
     });
     function regTicket(sportVal) {
         console.log("button pressed");
