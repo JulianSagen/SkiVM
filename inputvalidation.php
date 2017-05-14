@@ -42,7 +42,7 @@ function validateemail($email){
 }
 
 function validateaddress($address){
-    if(preg_match("/^[0-9a-zæøåA-ZÆØÅ.\- ]{4,20}$/",$address)){
+    if(preg_match("/^[0-9a-zæøåA-ZÆØÅ.\- ]{4,40}$/",$address)){
         return true;
     }
     return false;
