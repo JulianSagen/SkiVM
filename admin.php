@@ -88,6 +88,24 @@ include_once('navbar.php');
                 </div>
             </td>
         </tr>
+        <tr>
+            <td>
+                <h2 id="tabellOvelser">Registrer atlet på øvelse</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="dropdownOvelse">
+
+                </div>
+                <div id="dropdownAtlet">
+
+                </div>
+                <div id="regAtletOvelse">
+                    <input type="submit" value="Registrer" onclick="regAthleteToOvelse">
+                </div>
+            </td>
+        </tr>
     </table>
 </article>
 <script type="text/javascript">
@@ -101,6 +119,22 @@ include_once('navbar.php');
         }
         $("#tabellusers").append("<table class=\"table\" id=\"table-props\">" +
             "<thead class=\"thead-inverse\"><tr><th> # </th><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" + userinfo + "</table>");
+    });
+
+    $.getJSON(urlathlete, function (data) {
+        var athleteinfo = '';
+        for (row in data) {
+            athleteinfo += "<option id=\"athleteReg\">" + data[row].athletename + "</option>";
+        }
+        $("#dropdownAtlet").append("<select class=\"selectpicker show-tick dropdown-header\">" + athleteinfo + "</select>");
+    });
+
+    $.getJSON(urlsport, function (data) {
+        var sportinfo = '';
+        for (row in data) {
+            sportinfo += "<option id=\"sportReg\">" + data[row].sportname + "</option>";
+        }
+        $("#dropdownOvelse").append("<select class=\"selectpicker show-tick dropdown-header\">" + sportinfo + "</select>");
     });
 
     $.getJSON(urlathlete, function (data) {
@@ -136,6 +170,19 @@ include_once('navbar.php');
 
     function regathlete() {
         var urlregsport = "setdata.php?requesttype=regathlete&athletename=" + $('#athletename').val();
+        console.log(urlregsport);
+
+        $.getJSON(urlregsport, function (data) {
+            if (data === "OK") {
+                $("#messageregathlete").text("Utdøveren har nå blitt lagt til");
+            } else {
+                $("#messageregathlete").text(data);
+            }
+        });
+    }
+
+    function regAthleteToOvelse() {
+        var urlregsport = "setdata.php?requesttype=regisdoingsport&sportid="+$('#sportReg').val()+"&athleteid=" + $('#athleteReg').val();
         console.log(urlregsport);
 
         $.getJSON(urlregsport, function (data) {

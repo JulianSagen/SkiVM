@@ -234,3 +234,18 @@ article {
     margin-left: 40%;
     width: 100%;
 }
+
+#dropdownOvelse {
+    display: inline-block;
+    margin-bottom: 200px;
+    margin-right: 3%;
+}
+
+#dropdownAtlet {
+    display: inline-block;
+}
+
+#regAtletOvelse {
+    margin-right: 40%;
+    float: right;
+}
