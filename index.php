@@ -61,6 +61,7 @@ include_once('navbar.php');
 
             <div class="item">
                 <img src="img/Snow.jpg" alt="Snow">
+                
             </div>
         </div>
 
