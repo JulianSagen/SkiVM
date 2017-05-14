@@ -20,6 +20,11 @@ switch($typeforespørsel){
     case "getuserinfo":
         $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE userid = '" . getuserid() . "'";
         break;
+    case "getuserid":
+        if(isset($_SESSION['login_user'])) {
+            $sql = "SELECT userid FROM users WHERE username = '" . $_SESSION['login_user'] . "'";
+        }
+        break;
     case "getathletes":
         $sql = "SELECT athleteid, athletename FROM athletes";
         break;
