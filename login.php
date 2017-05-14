@@ -12,7 +12,7 @@
             $_SESSION['isAdmin'] = true;
         }
         $_SESSION['login_user']=$username;
-        $_SESSION['userid']=$username;
+        // todo $_SESSION['userid']=$username;
     }else{
         echo "Your password is useless";
     }
