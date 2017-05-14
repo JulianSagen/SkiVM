@@ -44,9 +44,9 @@ include_once('navbar.php');
         <div id="TextTBox">Brukernavn:</div>     <input type="text" name="username" pattern="[a-zæøåA-ZÆØÅ]{3,12}" title="Brukernavn mellom 3 og 12 bokstaver" placeholder="Username" ><br><br>
         <div id="TextTBox">Passord:</div>        <input type="password" pattern="[0-9A-Za-z%@!$#]{6,20}" title="Passord må være mellom 6 og 20 tegn" placeholder="Password" name="password"><br><br>
         <div id="TextTBox"> Navn:</div>          <input type="text" name="name" pattern="[a-zæøåA-ZÆØÅ][a-zæøåA-ZÆØÅ. ]{4,22}" title="Trenger mellom 4-22 bokstaver" placeholder="Name"><br><br>
-        <div id="TextTBox">E-mail:</div>         <input type="text" name="email"pattern="([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" title="Ugyldig epost adresse" placeholder="E-mail"><br><br>
+        <div id="TextTBox">E-mail:</div>         <input type="text" name="email"pattern="([A-za-z0-9_\.-]+)@([\da-zA-z\.-]+)\.([a-zA-Z\.]{2,6})" title="Ugyldig epost adresse" placeholder="E-mail"><br><br>
         <div id="TextTBox">Telefon nummer:</div> <input type="text" name="phonenumber" pattern="\d{8}" title="Telefonnummer er ugyldig, venligst bruk 8 siffer" placeholder="Phonenumber"><br><br>
-        <div id="TextTBox"> Addresse:</div>          <input type="text" name="address" pattern="[0-9a-zæøåA-ZÆØÅ.- ]{4,40}" title="Trenger mellom 4-40 bokstaver" placeholder="Name"><br><br>
+        <div id="TextTBox"> Addresse:</div>          <input type="text" name="address" pattern="[0-9a-zæøåA-ZÆØÅ. ]{4,40}" title="Trenger mellom 4-40 bokstaver" placeholder="Name"><br><br>
         <input type="submit" value="Registrer">
     </form>
     </div>
