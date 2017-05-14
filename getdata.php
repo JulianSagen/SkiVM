@@ -1,15 +1,6 @@
 <?php
 session_start();
 session_regenerate_id();
-//if (!isset($_SESSION['login_user'])){      // if there is no valid session
-//    header("Location: index.php");
-//}
-function getuser(){
-   $user = $_GET['requesttype'];
-   return $user;
-
-}
-
 include "inputvalidation.php";
 
 $typeforespørsel = $_GET['requesttype'];
