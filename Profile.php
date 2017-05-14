@@ -46,7 +46,15 @@ include_once('navbar.php');
     <table id="profilTabell">
         <tr>
             <td>
-                <div id="profilinfo"><img src="img/avatar.png"></div>
+                <div id="profilinfo"><img src="img/avatar.png">
+                <div id="user">
+                    <?php
+                    /* this only show if user is signed in*/
+                    if (isset($_SESSION['login_user'])) {
+                        echo "<p class='text-success'>Velkommen til din profil: "."<br>". $_SESSION['login_user'] . "</p>";
+                    }
+                    ?>
+                </div> </div>
             </td>
             <td>
                 <div id="profilTab">
@@ -58,11 +66,12 @@ include_once('navbar.php');
                             userinfo += "<tr><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
                         }
                         $("#profilTab").append("<table class=\"table\" id=\"table-props\">" +
-                            "<thead class=\"thead-inverse\"><tr><th> Brukernavn: </th><th> Navn: </th><th> Email: </th><th> Tlf. nr.: </th><th> Adresse </th></tr></thead>" + userinfo + "</table>");
+                            "<thead class=\"thead-inverse\"><tr><th> Brukernavn: </th><tr><th> Navn: </th></tr><tr><th> Email: </th></tr><tr><th> Tlf. nr.: </th></tr><th> Adresse: </th></tr></thead>" + userinfo + "</table>");
                     });
                     </script>
                 </div>
-            </td>
+            </td></tr>
+        <tr>
             <td>
                 <div id="profilBar"></div>
             </td>
