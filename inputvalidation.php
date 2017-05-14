@@ -8,7 +8,13 @@ function validatename($name){
 }
 
 function validateusername($username){
-    if(preg_match("/^[a-z]{3,12}$/",$username)){
+    if(preg_match("/^[a-z0-9]{3,12}$/",$username)){
+        return true;
+    }
+    return false;
+}
+function validatepassword($password){
+    if(preg_match("/^[0-9A-Za-z%@!$#]{6,20}$/",$password)){
         return true;
     }
     return false;
@@ -21,7 +27,26 @@ function validateid($id){
     return false;
 }
 
+function validatephonenr($phonenr){
+    if(preg_match("/^\d{8}$/",$phonenr)){
+        return true;
+    }
+    return false;
+}
 
+function validateemail($email){
+    if(preg_match("/^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/",$email)){
+        return true;
+    }
+    return false;
+}
+
+function validateaddress($address){
+    if(preg_match("/^[0-9a-zæøåA-ZÆØÅ.\- ]{4,20}$/",$address)){
+        return true;
+    }
+    return false;
+}
 
 
 function getsportname(){
