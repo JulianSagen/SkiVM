@@ -1,14 +1,14 @@
 <?php
 
 function validatename($name){
-    if(preg_match("/^[a-zæøåA-ZÆØÅ][a-zæøåA-ZÆØÅ. ]{1,22}$/",$name)){
+    if(preg_match("/^[a-zæøåA-ZÆØÅ][a-zæøåA-ZÆØÅ. ]{4,22}$/",$name)){
         return true;
     }
     return false;
 }
 
 function validateusername($username){
-    if(preg_match("/^[a-z0-9]{3,12}$/",$username)){
+    if(preg_match("/^[a-zæøåA-ZÆØÅ]{3,12}$/",$username)){
         return true;
     }
     return false;
@@ -35,14 +35,14 @@ function validatephonenr($phonenr){
 }
 
 function validateemail($email){
-    if(preg_match("/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/",$email)){
+    if(preg_match("/^([A-za-z0-9_\.-]+)@([\da-zA-z\.-]+)\.([a-zA-Z\.]{2,6})$/",$email)){
         return true;
     }
     return false;
 }
 
 function validateaddress($address){
-    if(preg_match("/^[0-9a-zæøåA-ZÆØÅ.\- ]{4,40}$/",$address)){
+    if(preg_match("/^[0-9a-zæøåA-ZÆØÅ. ]{4,40}$/",$address)){
         return true;
     }
     return false;
