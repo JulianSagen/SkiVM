@@ -25,7 +25,7 @@ switch($typeforespørsel){
         $sql="INSERT INTO athletes(athletename) VALUES ('" . mysqli_real_escape_string($db, getathletename()) . "')";
         break;
     case "regisdoingsport":
-        $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ('" . getsportid() . "','" . getathleteid() . "')";
+        $sql="INSERT INTO athleteduingsport(sportid, athleteid) VALUES ((SELECT sportid from sports where sportname ='" . getsportname() . "'), (SELECT athleteid from athletes where athletename ='" . getathletename() ."'))";
         break;
     case "regticket":
         $subquery ="SELECT userid FROM users WHERE username = " . getusername();

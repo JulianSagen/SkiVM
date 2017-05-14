@@ -1,14 +1,14 @@
 <?php
 
 function validatename($name){
-    if(preg_match("/^[a-zæøåA-ZÆØÅ][a-zæøåA-ZÆØÅ. ]{4,22}$/",$name)){
+    if(preg_match("/^[a-zæøåA-ZÆØÅ][a-zæøåA-ZÆØÅ.%0-9 ]{3,22}$/",$name)){
         return true;
     }
     return false;
 }
 
 function validateusername($username){
-    if(preg_match("/^[a-zæøåA-ZÆØÅ]{3,12}$/",$username)){
+    if(preg_match("/^[a-zæøåA-ZÆØÅ ]{3,12}$/",$username)){
         return true;
     }
     return false;
