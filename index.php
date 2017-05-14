@@ -141,7 +141,10 @@ include_once('navbar.php');
         $("#sportsDiv").append("<table class=\"table\" id=\"tableSport\">" + "<thead class=\"thead-inverse\"><tr><th> Konkurranser: </th>"+ headerName +"</tr></thead>" + sportinfo + "</table>");
     });
     $.getJSON(urluserid, function (data) {
-        userid = data[0];
+        for(var row in data){
+            //userid = data[row].userid;
+            userid = 13;
+        }
     }
     function regTicket(sportVal) {
         console.log("button pressed");

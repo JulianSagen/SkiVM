@@ -62,7 +62,7 @@ include_once('navbar.php');
                     var urluser = "getdata.php?requesttype=getuserinfo";
                     $.getJSON(urluser, function (data) {
                         var userinfo = '';
-                        for (row in data) {
+                        for (var row in data) {
                             userinfo += "<tr><td >" + data[row].username + "</td><td>" + data[row].fullnavn + "</td><td>" + data[row].email + "</td><td>" + data[row].phonenr + "</td><td>" + data[row].address + "</td></tr>";
                         }
                         $("#profilTab").append("<table class=\"table\" id=\"table-props\">" +
