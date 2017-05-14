@@ -198,13 +198,13 @@ article {
 
 #profiltabell {
     padding: 2%;
+    width: 90%;
+    margin: auto;
 }
 
 #profilinfo {
-    padding-left: 100px;
-    margin-left: 100px;
-    z-index: 100;
-    width: 200px;
+    margin-left: 20%;
+    width: 100%;
     height: 400px;
     display: block;
     background-color: #b9def0;
@@ -212,19 +212,14 @@ article {
 
 #profilTab {
     padding-left: 2%;
-    margin-left: 180px;
-    z-index: 100;
-    width: 600px;
-    height: 400px;
-    display: block;
-    background-color: #b9def0;
+    margin-left: 30%;
+    width: 100%;
 }
 
 #profilBar {
     padding-left: 2%;
-    margin-left: 100px;
-    z-index: 100;
-    width: 150px;
+    margin-left: 10%;
+    width: 40%;
     height: 400px;
     display: block;
     background-color: #b9def0;

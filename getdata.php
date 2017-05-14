@@ -26,6 +26,9 @@ switch($typeforespørsel){
     case "getusers":
         $sql = "SELECT userid, username, fullnavn, email, phonenr, address from users";
         break;
+    case "getuserinfo":
+        $sql = "SELECT username, fullnavn, email, phonenr, address from users WHERE userid = '" . getuserid() . "'";
+        break;
     case "getathletes":
         $sql = "SELECT athleteid, athletename FROM athletes";
         break;
